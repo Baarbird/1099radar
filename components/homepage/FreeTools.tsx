@@ -36,13 +36,13 @@ const tools = [
 
 export function FreeTools() {
   return (
-    <section className="container px-4 py-16 md:py-24 bg-muted/50">
-      <div className="mx-auto max-w-5xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+    <section className="container px-6 py-24 md:py-32 bg-muted/30">
+      <div className="mx-auto max-w-6xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl mb-6">
             Free Tools to Get Started
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl text-muted-foreground">
             No signup required. Start using these tools right away.
           </p>
         </div>
@@ -52,21 +52,21 @@ export function FreeTools() {
             return (
               <Card
                 key={tool.title}
-                className={`border-2 hover:border-primary/50 transition-colors ${
+                className={`border border-border/40 hover:border-border transition-all duration-200 hover:shadow-sm bg-card/50 ${
                   tool.featured ? "md:col-span-2 md:grid md:grid-cols-2" : ""
                 }`}
               >
                 <CardHeader className={tool.featured ? "md:pr-8" : ""}>
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                    <Icon className="h-6 w-6 text-primary" />
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-foreground/5">
+                    <Icon className="h-6 w-6 text-foreground" />
                   </div>
-                  <CardTitle className="text-2xl">{tool.title}</CardTitle>
-                  <CardDescription className="text-base mt-2">
+                  <CardTitle className="text-2xl font-semibold mb-3">{tool.title}</CardTitle>
+                  <CardDescription className="text-base text-muted-foreground leading-relaxed">
                     {tool.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className={tool.featured ? "flex items-end" : ""}>
-                  <Button asChild variant={tool.featured ? "default" : "outline"}>
+                  <Button asChild variant={tool.featured ? "default" : "outline"} size="lg" className="h-11">
                     <Link href={tool.href}>
                       Try it
                       <ArrowRight className="ml-2 h-4 w-4" />

@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, FileText, Users, AlertCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Infographic } from "@/components/shared/Infographic";
 
 const steps = [
   {
@@ -66,38 +67,45 @@ const steps = [
 
 export default function HireContractorPage() {
   return (
-    <div className="container px-4 py-16 md:py-24">
-      <div className="mx-auto max-w-4xl space-y-8">
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight">How to Hire a 1099 Contractor (Federal)</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+    <div className="container px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-4xl space-y-12">
+        <div className="text-center space-y-6">
+          <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">How to Hire a 1099 Contractor (Federal)</h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             A step-by-step guide to properly hiring and working with independent contractors under federal rules.
           </p>
         </div>
 
-        <div className="space-y-6">
+        {/* Example infographic - user can replace with their NotebookLM-designed graphics */}
+        {/* <Infographic 
+          src="/infographics/hire-contractor-process.png"
+          alt="Hiring a 1099 contractor process flow"
+          caption="Visual guide to the contractor hiring process"
+        /> */}
+
+        <div className="space-y-8">
           {steps.map((step) => {
             const Icon = step.icon;
             return (
-              <Card key={step.number} className="border-2">
+              <Card key={step.number} className="border border-border/40 hover:border-border transition-all duration-200 hover:shadow-sm bg-card/50">
                 <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-bold">
+                  <div className="flex items-start gap-6">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-foreground/5 text-foreground font-semibold text-lg">
                       {step.number}
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Icon className="h-5 w-5 text-primary" />
-                        <CardTitle className="text-xl">{step.title}</CardTitle>
+                      <div className="flex items-center gap-3 mb-3">
+                        <Icon className="h-5 w-5 text-foreground/60" />
+                        <CardTitle className="text-2xl font-semibold">{step.title}</CardTitle>
                       </div>
-                      <CardDescription className="text-base">
+                      <CardDescription className="text-base leading-relaxed">
                         {step.description}
                       </CardDescription>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground ml-14">
+                  <ul className="list-disc list-inside space-y-2 text-base text-muted-foreground leading-relaxed ml-14">
                     {step.details.map((detail, index) => (
                       <li key={index}>{detail}</li>
                     ))}
@@ -108,12 +116,12 @@ export default function HireContractorPage() {
           })}
         </div>
 
-        <Card className="border-2 bg-muted/50">
+        <Card className="border border-border/40 bg-card/50">
           <CardHeader>
-            <CardTitle>Important Reminders</CardTitle>
+            <CardTitle className="text-xl font-semibold">Important Reminders</CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground ml-2">
+            <ul className="list-disc list-inside space-y-3 text-base text-muted-foreground leading-relaxed ml-2">
               <li>Do not provide benefits (health insurance, PTO, retirement) to contractors</li>
               <li>Do not control their schedule or how they perform the work</li>
               <li>Do not provide tools, equipment, or materials (unless specified in contract)</li>
@@ -124,10 +132,10 @@ export default function HireContractorPage() {
         </Card>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" size="lg" className="h-11">
             <Link href="/tools/compliance-check">Check Your Compliance</Link>
           </Button>
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" size="lg" className="h-11">
             <Link href="/tools/classification">Learn About Classification</Link>
           </Button>
         </div>

@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, AlertTriangle, DollarSign } from "lucide-react";
+import { Infographic } from "@/components/shared/Infographic";
 
 const deadlines = [
   {
@@ -63,70 +64,79 @@ const penalties = [
 
 export default function DeadlinesPage() {
   return (
-    <div className="container px-4 py-16 md:py-24">
-      <div className="mx-auto max-w-4xl space-y-8">
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight">1099 Deadlines & Penalties</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+    <div className="container px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-4xl space-y-12">
+        <div className="text-center space-y-6">
+          <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">1099 Deadlines & Penalties</h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Important dates and penalties for federal 1099 filing requirements.
           </p>
         </div>
 
-        <div className="space-y-6">
-          <h2 className="text-2xl font-bold">Key Deadlines</h2>
-          {deadlines.map((deadline) => {
-            const Icon = deadline.icon;
-            return (
-              <Card key={deadline.title} className="border-2">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Icon className="h-5 w-5 text-primary" />
-                        <CardTitle className="text-xl">{deadline.title}</CardTitle>
+        {/* Example infographic - user can replace with their NotebookLM-designed graphics */}
+        {/* <Infographic 
+          src="/infographics/deadlines-calendar.png"
+          alt="1099 filing deadlines calendar"
+          caption="Key dates for 1099 filing deadlines throughout the year"
+        /> */}
+
+        <div className="space-y-8">
+          <h2 className="text-3xl font-semibold tracking-tight">Key Deadlines</h2>
+          <div className="space-y-6">
+            {deadlines.map((deadline) => {
+              const Icon = deadline.icon;
+              return (
+                <Card key={deadline.title} className="border border-border/40 hover:border-border transition-all duration-200 hover:shadow-sm bg-card/50">
+                  <CardHeader>
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-3">
+                          <Icon className="h-5 w-5 text-foreground/60" />
+                          <CardTitle className="text-2xl font-semibold">{deadline.title}</CardTitle>
+                        </div>
+                        <CardDescription className="text-base leading-relaxed mt-2">
+                          {deadline.description}
+                        </CardDescription>
                       </div>
-                      <CardDescription className="text-base mt-2">
-                        {deadline.description}
-                      </CardDescription>
+                      <Badge variant="outline" className="ml-4 font-medium text-base px-3 py-1">
+                        {deadline.date}
+                      </Badge>
                     </div>
-                    <Badge variant="outline" className="ml-4">
-                      {deadline.date}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center gap-2 text-sm">
-                    <AlertTriangle className="h-4 w-4 text-yellow-600" />
-                    <span className="text-muted-foreground">
-                      <strong>Penalty:</strong> {deadline.penalty}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-center gap-2 text-base">
+                      <AlertTriangle className="h-4 w-4 text-yellow-600" />
+                      <span className="text-muted-foreground">
+                        <strong className="font-medium">Penalty:</strong> {deadline.penalty}
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
         </div>
 
-        <Card className="border-2 bg-muted/50">
+        <Card className="border border-border/40 bg-card/50">
           <CardHeader>
-            <div className="flex items-center gap-2">
-              <DollarSign className="h-5 w-5 text-primary" />
-              <CardTitle>Penalty Schedule</CardTitle>
+            <div className="flex items-center gap-3">
+              <DollarSign className="h-5 w-5 text-foreground/60" />
+              <CardTitle className="text-xl font-semibold">Penalty Schedule</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              <p className="text-sm text-muted-foreground">
+            <div className="space-y-6">
+              <p className="text-base text-muted-foreground leading-relaxed">
                 Penalties for late or incorrect 1099 filings can add up quickly. Here's the current penalty structure:
               </p>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {penalties.map((penalty) => (
-                  <div key={penalty.type} className="border-l-2 border-primary pl-4 py-2">
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-semibold text-sm">{penalty.type}</h4>
-                      <Badge variant="secondary">{penalty.amount}</Badge>
+                  <div key={penalty.type} className="border-l-2 border-foreground/20 pl-4 py-2">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-semibold text-base">{penalty.type}</h4>
+                      <Badge variant="secondary" className="font-medium">{penalty.amount}</Badge>
                     </div>
-                    <p className="text-xs text-muted-foreground mt-1">{penalty.description}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{penalty.description}</p>
                   </div>
                 ))}
               </div>
@@ -134,12 +144,12 @@ export default function DeadlinesPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-2">
+        <Card className="border border-border/40 bg-card/50">
           <CardHeader>
-            <CardTitle>Important Notes</CardTitle>
+            <CardTitle className="text-xl font-semibold">Important Notes</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground ml-2">
+            <ul className="list-disc list-inside space-y-3 text-base text-muted-foreground leading-relaxed ml-2">
               <li>Deadlines are based on the previous tax year (e.g., January 31, 2025 for 2024 tax year)</li>
               <li>Penalties can be waived if you can show reasonable cause</li>
               <li>Electronic filing is required if you file 250 or more forms</li>

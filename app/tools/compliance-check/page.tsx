@@ -97,19 +97,19 @@ export default function ComplianceCheckPage() {
 
   if (step === "welcome") {
     return (
-      <div className="container px-4 py-16 md:py-24">
+      <div className="container px-6 py-24 md:py-32">
         <div className="mx-auto max-w-2xl">
-          <Card className="border-2">
+          <Card className="border border-border/40 bg-card/50">
             <CardHeader>
-              <CardTitle className="text-3xl">Free Compliance Check</CardTitle>
-              <CardDescription className="text-base">
+              <CardTitle className="text-4xl font-semibold tracking-tight">Free Compliance Check</CardTitle>
+              <CardDescription className="text-lg leading-relaxed">
                 Answer a few simple questions to understand your compliance requirements
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <h3 className="font-semibold">What you'll learn:</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground ml-2">
+            <CardContent className="space-y-6">
+              <div className="space-y-3">
+                <h3 className="font-semibold text-base">What you'll learn:</h3>
+                <ul className="list-disc list-inside space-y-2 text-base text-muted-foreground leading-relaxed ml-2">
                   <li>Which 1099 form (if any) you need to file</li>
                   <li>Your classification risk level</li>
                   <li>Missing documentation you need to collect</li>
@@ -117,7 +117,7 @@ export default function ComplianceCheckPage() {
                 </ul>
               </div>
               <div className="pt-4">
-                <Button onClick={handleStart} size="lg" className="w-full sm:w-auto">
+                <Button onClick={handleStart} size="lg" className="w-full sm:w-auto h-12">
                   Start Check
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -131,8 +131,8 @@ export default function ComplianceCheckPage() {
 
   if (step === "questions") {
     return (
-      <div className="container px-4 py-8 md:py-16">
-        <div className="mx-auto max-w-2xl space-y-6">
+      <div className="container px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-2xl space-y-8">
           <ProgressIndicator
             current={currentQuestionIndex + 1}
             total={complianceQuestions.length}
@@ -153,7 +153,7 @@ export default function ComplianceCheckPage() {
 
   if (step === "results" && results) {
     return (
-      <div className="container px-4 py-8 md:py-16">
+      <div className="container px-6 py-16 md:py-24">
         <ResultsCard results={results} onStartOver={handleStartOver} />
       </div>
     );
