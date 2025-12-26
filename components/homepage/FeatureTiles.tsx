@@ -26,20 +26,20 @@ const features = [
 
 export function FeatureTiles() {
   return (
-    <section className="container px-6 py-24 md:py-32">
+    <section className="bg-background container px-6 py-24 md:py-32">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {features.map((feature) => {
           const Icon = feature.icon;
           return (
             <Card 
               key={feature.title} 
-              className="border border-border/40 hover:border-border transition-all duration-200 hover:shadow-sm bg-card/50"
+              className="border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl bg-card group shadow-sm"
             >
               <CardHeader>
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-foreground/5">
-                  <Icon className="h-6 w-6 text-foreground" />
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <Icon className="h-7 w-7 text-primary" />
                 </div>
-                <CardTitle className="text-xl font-semibold mb-2">{feature.title}</CardTitle>
+                <CardTitle className="text-xl font-bold mb-3 text-foreground">{feature.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base text-muted-foreground leading-relaxed">

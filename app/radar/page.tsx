@@ -48,20 +48,20 @@ export default function RadarPage() {
       <div className="mx-auto max-w-4xl space-y-12">
         <div className="text-center space-y-6">
           <div className="flex items-center justify-center gap-3">
-            <Radar className="h-10 w-10 text-foreground/60" />
-            <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">Federal Updates Radar</h1>
+            <Radar className="h-12 w-12 text-primary/60" />
+            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">Federal Updates Radar</h1>
           </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-normal">
             Stay informed about changes to federal contractor rules, deadlines, and guidance.
           </p>
         </div>
 
-        <Card className="border border-border/40 bg-card/50">
+        <Card className="border border-border/50 bg-card">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold">About This Radar</CardTitle>
+            <CardTitle className="text-xl font-bold">About This Radar</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-base text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed font-normal">
               This page tracks federal-level updates related to 1099 contractor compliance, 
               including IRS guidance, Department of Labor rules, deadline reminders, and penalty updates. 
               We focus on federal rules only—state-specific requirements are not included in v1.
@@ -70,16 +70,16 @@ export default function RadarPage() {
         </Card>
 
         <div className="space-y-8">
-          <h2 className="text-3xl font-semibold tracking-tight">Recent Updates</h2>
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Recent Updates</h2>
           <div className="space-y-6">
             {updates.map((update) => (
-              <Card key={update.date} className="border border-border/40 hover:border-border transition-all duration-200 hover:shadow-sm bg-card/50">
+              <Card key={update.date} className="border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-card group">
                 <CardHeader>
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <Badge variant="outline" className="font-medium">{update.category}</Badge>
-                        <time className="text-sm text-muted-foreground">
+                      <div className="flex items-center gap-3 mb-4">
+                        <Badge variant="outline" className="font-semibold">{update.category}</Badge>
+                        <time className="text-sm text-muted-foreground font-medium">
                           {new Date(update.date).toLocaleDateString("en-US", {
                             month: "long",
                             day: "numeric",
@@ -87,18 +87,18 @@ export default function RadarPage() {
                           })}
                         </time>
                       </div>
-                      <CardTitle className="text-2xl font-semibold mb-3">{update.title}</CardTitle>
-                      <CardDescription className="text-base leading-relaxed">
+                      <CardTitle className="text-2xl font-bold mb-4">{update.title}</CardTitle>
+                      <CardDescription className="text-base leading-relaxed font-normal">
                         {update.description}
                       </CardDescription>
                     </div>
                     <div className="flex-shrink-0">
-                      <FileText className="h-5 w-5 text-muted-foreground" />
+                      <FileText className="h-5 w-5 text-primary/60" />
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
                     <Calendar className="h-4 w-4" />
                     <span>Source: {update.source}</span>
                   </div>
@@ -108,12 +108,12 @@ export default function RadarPage() {
           </div>
         </div>
 
-        <Card className="border border-border/40 bg-card/50">
+        <Card className="border border-border/50 bg-card">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold">Stay Updated</CardTitle>
+            <CardTitle className="text-xl font-bold">Stay Updated</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-base text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed font-normal">
               Federal rules and guidance can change. This radar is updated regularly to reflect 
               the latest information. For the most current official guidance, always refer to 
               IRS.gov and DOL.gov directly.

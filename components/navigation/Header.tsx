@@ -10,28 +10,28 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between px-6">
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/80">
+      <div className="container flex h-20 items-center justify-between px-6">
         <Link href="/" className="flex items-center space-x-2 transition-opacity hover:opacity-80">
-          <span className="text-lg font-semibold tracking-tight">1099Radar</span>
+          <span className="text-xl font-bold tracking-tight">1099Radar</span>
         </Link>
         
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           <Link
             href="/tools/compliance-check"
-            className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+            className="text-sm font-semibold text-foreground/80 transition-colors hover:text-foreground"
           >
             Tools
           </Link>
           <Link
             href="/learn/hire-contractor"
-            className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+            className="text-sm font-semibold text-foreground/80 transition-colors hover:text-foreground"
           >
             Learn
           </Link>
           <Link
             href="/radar"
-            className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+            className="text-sm font-semibold text-foreground/80 transition-colors hover:text-foreground"
           >
             Radar
           </Link>

@@ -18,26 +18,26 @@ const recentUpdates = [
 
 export function RadarPreview() {
   return (
-    <section className="container px-6 py-24 md:py-32">
+    <section className="bg-background container px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex items-center justify-between mb-16">
           <div>
-            <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl mb-4">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6 text-foreground">
               Federal Updates Radar
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground font-normal">
               Stay informed about changes to federal contractor rules and deadlines.
             </p>
           </div>
-          <Radar className="h-10 w-10 text-foreground/60 hidden md:block" />
+          <Radar className="h-12 w-12 text-primary/70 hidden md:block" />
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mb-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mb-10">
           {recentUpdates.map((update) => (
-            <Card key={update.date} className="border border-border/40 hover:border-border transition-all duration-200 hover:shadow-sm bg-card/50">
+            <Card key={update.date} className="border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl bg-card group shadow-sm">
               <CardHeader>
-                <div className="flex items-center justify-between mb-3">
-                  <CardTitle className="text-xl font-semibold">{update.title}</CardTitle>
-                  <time className="text-sm text-muted-foreground whitespace-nowrap ml-4">
+                <div className="flex items-center justify-between mb-4">
+                  <CardTitle className="text-xl font-bold text-foreground">{update.title}</CardTitle>
+                  <time className="text-sm text-muted-foreground whitespace-nowrap ml-4 font-medium">
                     {new Date(update.date).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
@@ -51,10 +51,10 @@ export function RadarPreview() {
           ))}
         </div>
         <div className="text-center">
-          <Button asChild variant="outline" size="lg" className="h-11">
+          <Button asChild variant="outline" size="lg" className="h-12 rounded-xl border-2 shadow-sm hover:shadow-md transition-shadow">
             <Link href="/radar">
               View all updates
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>
