@@ -12,11 +12,14 @@ export function Hero() {
       <div className="container relative px-6 py-20 md:py-28 lg:py-36">
         <div className="mx-auto max-w-5xl text-center space-y-10">
           <div className="space-y-6">
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] text-foreground">
+            <p className="text-lg font-medium tracking-tight sm:text-xl text-primary/90 uppercase tracking-wider">
               1099Radar helps businesses understand, monitor, and stay compliant with federal contractor (1099) rules — clearly and in real time.
+            </p>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-foreground">
+              Stop guessing about contractor compliance.
             </h1>
             <p className="text-xl text-muted-foreground sm:text-2xl max-w-3xl mx-auto leading-relaxed font-normal">
-              Stop guessing about contractor compliance. Get clear answers about federal requirements, deadlines, and forms—all in plain English, no legal jargon.
+              Get clear answers about federal requirements, deadlines, and forms—all in plain English, no legal jargon.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
