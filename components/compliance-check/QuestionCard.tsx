@@ -49,7 +49,7 @@ export function QuestionCard({
       <CardContent className="space-y-6">
         {question.type === "yes-no" && (
           <RadioGroup
-            value={value as string}
+            value={value && typeof value === "string" ? value : ""}
             onValueChange={(val) => onChange(val)}
             className="space-y-4"
           >
@@ -70,7 +70,7 @@ export function QuestionCard({
 
         {question.type === "select" && question.options && (
           <Select
-            value={value as string}
+            {...(value && typeof value === "string" ? { value } : {})}
             onValueChange={(val) => onChange(val)}
           >
             <SelectTrigger className="w-full">
