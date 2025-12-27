@@ -1,3 +1,5 @@
+"use client";
+
 import { DefensibleRiskReport } from "@/types/compliance";
 
 /**
