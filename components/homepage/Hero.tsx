@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen } from "lucide-react";
 
@@ -8,6 +9,17 @@ export function Hero() {
       {/* Soft gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/3" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+      
+      {/* Background image */}
+      <div className="absolute inset-0 opacity-5">
+        <Image
+          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80"
+          alt="Business office background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
       
       <div className="container relative px-6 py-20 md:py-28 lg:py-36">
         <div className="mx-auto max-w-5xl text-center space-y-10">
