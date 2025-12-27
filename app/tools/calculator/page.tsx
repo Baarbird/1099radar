@@ -4,7 +4,10 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Calculator } from "lucide-react";
+import { Calculator, AlertCircle } from "lucide-react";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function CalculatorPage() {
   const [hourlyRate, setHourlyRate] = useState<string>("");
@@ -36,11 +39,7 @@ export default function CalculatorPage() {
             </div>
           </div>
           <div className="relative">
-            <img 
-              src="https://assets.manypixels.co/illustrations/calculator" 
-              alt="Calculator illustration" 
-              className="w-full h-auto drop-shadow-xl"
-            />
+            <UndrawIllustration name="calculator" className="w-full h-auto drop-shadow-xl" />
           </div>
         </div>
 

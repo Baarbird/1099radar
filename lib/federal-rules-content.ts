@@ -13,7 +13,7 @@ export interface FederalRuleContent {
       bullets?: string[];
     }>;
   };
-  imageUrl: string;
+  illustration: "searching" | "alarm" | "learning" | "checklist" | "documents" | "team" | "calculator" | "calendar" | "decide" | "warning" | "radar";
 }
 
 export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
@@ -62,7 +62,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://assets.manypixels.co/illustrations/decide"
+    illustration: "decide" as const
   },
   forms: {
     id: "forms",
@@ -111,7 +111,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://assets.manypixels.co/illustrations/documents"
+    illustration: "documents" as const
   },
   deadlines: {
     id: "deadlines",
@@ -155,7 +155,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://assets.manypixels.co/illustrations/calendar"
+    illustration: "calendar" as const
   },
   penalties: {
     id: "penalties",
@@ -200,7 +200,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://assets.manypixels.co/illustrations/warning"
+    illustration: "warning" as const
   },
   requirements: {
     id: "requirements",
@@ -256,7 +256,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://assets.manypixels.co/illustrations/checklist"
+    illustration: "checklist" as const
   }
 };
 

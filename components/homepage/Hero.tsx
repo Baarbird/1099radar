@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, CheckCircle2 } from "lucide-react";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 export function Hero() {
   return (
@@ -54,16 +55,7 @@ export function Hero() {
           
           <div className="relative animate-in fade-in zoom-in-95 duration-1000 delay-200">
             <div className="relative z-10 w-full h-auto p-8">
-              <img 
-                src="https://assets.manypixels.co/illustrations/searching" 
-                alt="Contractor compliance illustration" 
-                className="w-full h-auto drop-shadow-2xl"
-                onError={(e) => {
-                  // Fallback to a simple SVG if CDN fails
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                }}
-              />
+              <UndrawIllustration name="searching" className="drop-shadow-2xl" />
             </div>
             {/* Decorative bits and pieces */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/10 rounded-full blur-2xl" />

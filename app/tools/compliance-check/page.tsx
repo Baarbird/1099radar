@@ -18,7 +18,8 @@ import {
 } from "@/lib/risk-scoring";
 import { ComplianceResults } from "@/types/compliance";
 import { saveComplianceResults, saveAnswers, clearAnswers, loadAnswers } from "@/lib/storage";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Shield } from "lucide-react";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 type Step = "welcome" | "questions" | "results";
 
@@ -132,9 +133,8 @@ export default function ComplianceCheckPage() {
               </div>
             </div>
             <div className="relative order-first lg:order-last p-8">
-              <img 
-                src="https://assets.manypixels.co/illustrations/checklist" 
-                alt="Compliance checklist illustration" 
+              <UndrawIllustration 
+                name="checklist" 
                 className="w-full h-auto drop-shadow-2xl animate-in fade-in zoom-in duration-1000"
               />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />

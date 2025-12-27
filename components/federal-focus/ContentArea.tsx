@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { FederalTopic, federalRulesContent } from "@/lib/federal-rules-content";
 import { cn } from "@/lib/utils";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 interface ContentAreaProps {
   topic: FederalTopic;
@@ -32,14 +33,9 @@ export function ContentArea({ topic }: ContentAreaProps) {
               </div>
             </div>
             <div className="relative order-first lg:order-last p-8 bg-muted/20 rounded-[40px]">
-              <img 
-                src={content.imageUrl} 
-                alt={content.title} 
+              <UndrawIllustration 
+                name={content.illustration}
                 className="w-full h-auto drop-shadow-2xl animate-in fade-in zoom-in duration-700"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "https://assets.manypixels.co/illustrations/searching";
-                }}
               />
             </div>
           </div>

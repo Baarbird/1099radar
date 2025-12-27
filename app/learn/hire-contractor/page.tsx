@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Infographic } from "@/components/shared/Infographic";
 import { cn } from "@/lib/utils";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 const steps = [
   {
@@ -87,9 +88,8 @@ export default function HireContractorPage() {
             </div>
           </div>
           <div className="relative order-first lg:order-last p-8">
-            <img 
-              src="https://assets.manypixels.co/illustrations/team" 
-              alt="Hiring team illustration" 
+            <UndrawIllustration 
+              name="team" 
               className="w-full h-auto drop-shadow-2xl animate-in fade-in zoom-in duration-700"
             />
           </div>
@@ -127,9 +127,8 @@ export default function HireContractorPage() {
                   </Card>
                 </div>
                 <div className="w-full lg:w-1/2 p-8 flex justify-center bg-muted/20 rounded-3xl">
-                  <img 
-                    src={`https://assets.manypixels.co/illustrations/${step.number === 1 ? 'decide' : step.number === 2 ? 'documents' : step.number === 3 ? 'agreement' : step.number === 4 ? 'online_payment' : 'all_the_data'}`}
-                    alt={step.title}
+                  <UndrawIllustration 
+                    name={step.number === 1 ? 'decide' : step.number === 2 ? 'documents' : step.number === 3 ? 'decide' : step.number === 4 ? 'calculator' : 'checklist'}
                     className="w-full max-w-sm h-auto opacity-80"
                   />
                 </div>

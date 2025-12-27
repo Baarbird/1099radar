@@ -3,31 +3,32 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Image from "next/image";
 import { Shield, Clock, BookOpen, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 const features = [
   {
     icon: Shield,
     title: "Federal Focus",
     description: "Clear guidance on federal contractor rules, no state complexity.",
-    image: "https://assets.manypixels.co/illustrations/searching",
+    illustration: "searching" as const,
   },
   {
     icon: Clock,
     title: "Real-Time Updates",
     description: "Stay informed about changes to federal guidance and deadlines.",
-    image: "https://assets.manypixels.co/illustrations/alarm",
+    illustration: "alarm" as const,
   },
   {
     icon: BookOpen,
     title: "Clear Guidance",
     description: "Plain English explanations, not overwhelming legalese.",
-    image: "https://assets.manypixels.co/illustrations/learning",
+    illustration: "learning" as const,
   },
   {
     icon: Wrench,
     title: "Free Tools",
     description: "Interactive tools to check compliance and make decisions.",
-    image: "https://assets.manypixels.co/illustrations/checklist",
+    illustration: "checklist" as const,
   },
 ];
 
@@ -46,10 +47,9 @@ export function FeatureTiles() {
               )}
             >
               <div className="relative h-64 w-full p-8 flex items-center justify-center bg-muted/20">
-                <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                <UndrawIllustration 
+                  name={feature.illustration}
+                  className="w-full h-full group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <CardHeader className="flex-grow">

@@ -1,6 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, CheckCircle2 } from "lucide-react";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function NECvsMISCPage() {
   return (
@@ -26,9 +29,8 @@ export default function NECvsMISCPage() {
             </div>
           </div>
           <div className="relative order-first lg:order-last p-8">
-            <img 
-              src="https://assets.manypixels.co/illustrations/documents" 
-              alt="Forms illustration" 
+            <UndrawIllustration 
+              name="documents" 
               className="w-full h-auto drop-shadow-2xl animate-in slide-in-from-top-8 duration-700"
             />
           </div>

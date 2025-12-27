@@ -3,6 +3,7 @@ import { AlertCircle, FileText, CheckCircle2, Calendar } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Infographic } from "@/components/shared/Infographic";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 const considerations = [
   {
@@ -67,11 +68,7 @@ export default function FireContractorPage() {
             </div>
           </div>
           <div className="relative order-first lg:order-last">
-            <img 
-              src="https://assets.manypixels.co/illustrations/checklist" 
-              alt="Termination checklist illustration" 
-              className="w-full h-auto drop-shadow-xl"
-            />
+            <UndrawIllustration name="checklist" className="w-full h-auto drop-shadow-xl" />
           </div>
         </div>
 

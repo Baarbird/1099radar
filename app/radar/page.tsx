@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Radar, Calendar, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 const updates = [
   {
@@ -61,9 +62,8 @@ export default function RadarPage() {
             </p>
           </div>
           <div className="relative order-first lg:order-last p-8">
-            <img 
-              src="https://assets.manypixels.co/illustrations/radar" 
-              alt="Radar monitoring illustration" 
+            <UndrawIllustration 
+              name="radar" 
               className="w-full h-auto drop-shadow-2xl animate-in zoom-in duration-1000"
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary/10 rounded-full blur-3xl -z-10" />

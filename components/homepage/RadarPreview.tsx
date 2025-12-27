@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Radar, ArrowRight } from "lucide-react";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 const recentUpdates = [
   {
@@ -46,9 +47,8 @@ export function RadarPreview() {
             </div>
           </div>
           <div className="relative">
-            <img 
-              src="https://assets.manypixels.co/illustrations/radar" 
-              alt="Radar illustration" 
+            <UndrawIllustration 
+              name="radar" 
               className="w-full h-auto drop-shadow-xl animate-pulse duration-[4000ms]"
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/20 rounded-full blur-3xl -z-10" />

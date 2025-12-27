@@ -1,7 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, AlertTriangle, DollarSign } from "lucide-react";
+import { Calendar, AlertTriangle, DollarSign, CheckCircle2 } from "lucide-react";
 import { Infographic } from "@/components/shared/Infographic";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 const deadlines = [
   {
@@ -82,11 +83,7 @@ export default function DeadlinesPage() {
             </div>
           </div>
           <div className="relative order-first lg:order-last">
-            <img 
-              src="https://assets.manypixels.co/illustrations/calendar" 
-              alt="Calendar illustration" 
-              className="w-full h-auto drop-shadow-xl"
-            />
+            <UndrawIllustration name="calendar" className="w-full h-auto drop-shadow-xl" />
           </div>
         </div>
 

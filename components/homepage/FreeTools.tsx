@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, FileText, Users, Calculator, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 const tools = [
   {
@@ -12,7 +13,7 @@ const tools = [
     description: "Answer a few questions to see what forms you need and identify compliance gaps.",
     href: "/tools/compliance-check",
     featured: true,
-    image: "https://assets.manypixels.co/illustrations/checklist",
+    illustration: "checklist" as const,
   },
   {
     icon: FileText,
@@ -20,7 +21,7 @@ const tools = [
     description: "Not sure which form to use? This tool helps you decide based on payment type.",
     href: "/tools/nec-vs-misc",
     featured: false,
-    image: "https://assets.manypixels.co/illustrations/documents",
+    illustration: "documents" as const,
   },
   {
     icon: Users,
@@ -28,7 +29,7 @@ const tools = [
     description: "Understand the key differences and classification factors for federal rules.",
     href: "/tools/classification",
     featured: false,
-    image: "https://assets.manypixels.co/illustrations/team",
+    illustration: "team" as const,
   },
   {
     icon: Calculator,
@@ -36,7 +37,7 @@ const tools = [
     description: "Calculate contractor rates and understand tax implications.",
     href: "/tools/calculator",
     featured: false,
-    image: "https://assets.manypixels.co/illustrations/calculator",
+    illustration: "calculator" as const,
   },
 ];
 
@@ -68,10 +69,9 @@ export function FreeTools() {
                     "relative flex items-center justify-center p-8 bg-muted/30",
                     tool.featured ? "h-full min-h-[300px]" : "h-64"
                   )}>
-                    <img
-                      src={tool.image}
-                      alt={tool.title}
-                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                    <UndrawIllustration 
+                      name={tool.illustration}
+                      className="w-full h-full group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                   <div className="flex flex-col p-8 lg:p-10">
