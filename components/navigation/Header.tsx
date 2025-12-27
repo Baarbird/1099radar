@@ -10,7 +10,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-lg supports-backdrop-filter:bg-background/80">
       <div className="container flex h-20 items-center justify-between px-6">
         <Link href="/" className="flex flex-col items-start space-y-1 transition-opacity hover:opacity-80">
           <img 
