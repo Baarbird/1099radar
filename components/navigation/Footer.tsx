@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container px-6 py-20">
         <div className="grid grid-cols-2 gap-12 md:grid-cols-5">
           <div className="col-span-2 md:col-span-1 space-y-4">
-            <h3 className="text-base font-bold tracking-tight">1099Radar</h3>
+            <h3 className="text-base font-bold tracking-tight">1099 Radar</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Clear, real-time guidance on federal contractor compliance.
             </p>
@@ -100,7 +100,7 @@ export function Footer() {
             <strong className="font-semibold">Disclaimer:</strong> Information only, not legal or tax advice.
           </p>
           <p className="text-sm text-muted-foreground text-center mt-4">
-            © {new Date().getFullYear()} 1099Radar. All rights reserved.
+            © {new Date().getFullYear()} 1099 Radar. All rights reserved.
           </p>
         </div>
       </div>

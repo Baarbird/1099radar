@@ -12,8 +12,13 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/80">
       <div className="container flex h-20 items-center justify-between px-6">
-        <Link href="/" className="flex items-center space-x-2 transition-opacity hover:opacity-80">
-          <span className="text-xl font-bold tracking-tight">1099Radar</span>
+        <Link href="/" className="flex flex-col items-start space-y-1 transition-opacity hover:opacity-80">
+          <img 
+            src="/logo.svg" 
+            alt="1099 Radar Logo" 
+            className="h-10 w-10 object-contain"
+          />
+          <span className="text-xl font-bold tracking-tight">1099 Radar</span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-10">
