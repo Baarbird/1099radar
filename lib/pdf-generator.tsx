@@ -10,7 +10,8 @@ export async function generatePdf(report: DefensibleRiskReport) {
     <Document>
       <RiskReportPDF report={report} />
     </Document>
-  ) as unknown as React.ReactElement;
+  );
+
   const blob = await pdf(doc).toBlob();
   return blob;
 }
