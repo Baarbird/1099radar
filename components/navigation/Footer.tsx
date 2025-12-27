@@ -6,7 +6,14 @@ export function Footer() {
       <div className="container px-6 py-20">
         <div className="grid grid-cols-2 gap-12 md:grid-cols-5">
           <div className="col-span-2 md:col-span-1 space-y-4">
-            <h3 className="text-base font-bold tracking-tight">1099 Radar</h3>
+            <div className="flex flex-col items-start space-y-2">
+              <img 
+                src="/logo.png" 
+                alt="1099 Radar Logo" 
+                className="h-10 w-10 object-contain"
+              />
+              <h3 className="text-base font-bold tracking-tight">1099 Radar</h3>
+            </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Clear, real-time guidance on federal contractor compliance.
             </p>

@@ -14,7 +14,7 @@ export function Header() {
       <div className="container flex h-20 items-center justify-between px-6">
         <Link href="/" className="flex flex-col items-start space-y-1 transition-opacity hover:opacity-80">
           <img 
-            src="/logo.svg" 
+            src="/logo.png" 
             alt="1099 Radar Logo" 
             className="h-10 w-10 object-contain"
           />
