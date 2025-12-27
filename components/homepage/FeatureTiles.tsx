@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { Shield, Clock, BookOpen, Wrench } from "lucide-react";
@@ -35,10 +36,10 @@ export function FeatureTiles() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {features.map((feature) => {
           const Icon = feature.icon;
-          return (
+          const cardElement = (
             <Card 
               key={feature.title} 
-              className="border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl bg-card group shadow-sm overflow-hidden"
+              className="border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl bg-card group shadow-sm overflow-hidden h-full cursor-pointer"
             >
               <div className="relative h-48 w-full">
                 <Image
@@ -61,6 +62,16 @@ export function FeatureTiles() {
               </CardContent>
             </Card>
           );
+
+          if (feature.title === "Federal Focus") {
+            return (
+              <Link key={feature.title} href="/learn/federal-focus" className="block h-full">
+                {cardElement}
+              </Link>
+            );
+          }
+
+          return cardElement;
         })}
       </div>
     </section>
