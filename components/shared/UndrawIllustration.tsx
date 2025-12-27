@@ -2,24 +2,23 @@
 
 import { cn } from "@/lib/utils";
 
-// All illustrations use the same file for now
-// To add more: download from undraw.co, save to public/illustrations/, update this map
+// Map illustration names to local SVG files from undraw-svg-collection
 const illustrationPaths: Record<string, string> = {
+  "searching": "/illustrations/searching.svg",
+  "alarm": "/illustrations/alarm.svg",
+  "learning": "/illustrations/learning.svg",
+  "checklist": "/illustrations/checklist.svg",
+  "documents": "/illustrations/documents.svg",
+  "team": "/illustrations/team.svg",
+  "calculator": "/illustrations/calculator.svg",
+  "calendar": "/illustrations/calendar.svg",
+  "decide": "/illustrations/decide.svg",
+  "warning": "/illustrations/warning.svg",
+  "radar": "/illustrations/radar.svg",
   "taking-notes": "/illustrations/taking-notes.svg",
-  "searching": "/illustrations/taking-notes.svg",
-  "alarm": "/illustrations/taking-notes.svg",
-  "learning": "/illustrations/taking-notes.svg",
-  "checklist": "/illustrations/taking-notes.svg",
-  "documents": "/illustrations/taking-notes.svg",
-  "team": "/illustrations/taking-notes.svg",
-  "calculator": "/illustrations/taking-notes.svg",
-  "calendar": "/illustrations/taking-notes.svg",
-  "decide": "/illustrations/taking-notes.svg",
-  "warning": "/illustrations/taking-notes.svg",
-  "radar": "/illustrations/taking-notes.svg",
 };
 
-const fallbackPath = "/illustrations/taking-notes.svg";
+const fallbackPath = "/illustrations/searching.svg";
 
 interface UndrawIllustrationProps {
   name: keyof typeof illustrationPaths | string;
