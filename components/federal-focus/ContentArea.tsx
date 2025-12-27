@@ -13,8 +13,8 @@ export function ContentArea({ topic }: ContentAreaProps) {
 
   return (
     <div className="w-full md:w-4/5 md:ml-[20%] min-h-screen bg-background pt-24 md:pt-0">
-      <div className="container px-6 py-12 md:py-16">
-        <div className="max-w-4xl mx-auto space-y-8">
+      <div className="w-full px-6 md:px-12 lg:px-16 py-12 md:py-16">
+        <div className="w-full max-w-6xl mx-auto space-y-8">
           {/* Header with Image */}
           <div className="text-center space-y-6">
             <div className="flex justify-center mb-6">
@@ -22,6 +22,11 @@ export function ContentArea({ topic }: ContentAreaProps) {
                 src={content.imageUrl} 
                 alt={content.title} 
                 className="w-full max-w-md h-auto"
+                onError={(e) => {
+                  // Fallback to a placeholder if image fails to load
+                  const target = e.target as HTMLImageElement;
+                  target.src = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80";
+                }}
               />
             </div>
             <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">
