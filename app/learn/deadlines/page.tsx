@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, AlertTriangle, DollarSign, CheckCircle2 } from "lucide-react";
 import { Infographic } from "@/components/shared/Infographic";
 import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const deadlines = [
   {
