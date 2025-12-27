@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { FederalTopic, federalRulesContent } from "@/lib/federal-rules-content";
+import { cn } from "@/lib/utils";
 
 interface ContentAreaProps {
   topic: FederalTopic;

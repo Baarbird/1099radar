@@ -122,10 +122,10 @@
   body {
     @apply bg-background text-foreground;
     background-image: 
-      radial-gradient(at 0% 0%, oklch(0.95 0.05 280 / 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, oklch(0.45 0.18 280 / 0.08) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, oklch(0.95 0.05 280 / 0.15) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, oklch(0.45 0.18 280 / 0.08) 0px, transparent 50%),
+      radial-gradient(at 0% 0%, oklch(0.95 0.05 280 / 0.15) 0%, transparent 50%),
+      radial-gradient(at 100% 0%, oklch(0.45 0.18 280 / 0.08) 0%, transparent 50%),
+      radial-gradient(at 100% 100%, oklch(0.95 0.05 280 / 0.15) 0%, transparent 50%),
+      radial-gradient(at 0% 100%, oklch(0.45 0.18 280 / 0.08) 0%, transparent 50%),
       linear-gradient(180deg, oklch(1 0 0 / 0) 0%, oklch(0.45 0.18 280 / 0.02) 100%);
     background-attachment: fixed;
     font-feature-settings: "rlig" 1, "calt" 1;

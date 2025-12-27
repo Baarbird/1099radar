@@ -1,9 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, FileText, Users, AlertCircle, ArrowRight } from "lucide-react";
+import { CheckCircle2, FileText, Users, AlertCircle, ArrowRight, Shield } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Infographic } from "@/components/shared/Infographic";
+import { cn } from "@/lib/utils";
 
 const steps = [
   {

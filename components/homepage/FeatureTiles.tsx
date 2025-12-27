@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { Shield, Clock, BookOpen, Wrench } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const features = [
   {

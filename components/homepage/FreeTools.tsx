@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, FileText, Users, Calculator, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const tools = [
   {
