@@ -1,14 +1,14 @@
 "use client";
 
-import { Document, Page, Text, View } from '@react-pdf/renderer';
+import { Page, Text, View } from '@react-pdf/renderer';
 import { DefensibleRiskReport } from '@/types/compliance';
 
 export function RiskReportPDF({ report }: { report: DefensibleRiskReport }) {
   return (
-    <Document>
-      <Page size="A4">
+    <Page size="A4">
+      <View>
         <Text>1099 Misclassification Risk Assessment</Text>
-      </Page>
-    </Document>
+      </View>
+    </Page>
   );
 }
