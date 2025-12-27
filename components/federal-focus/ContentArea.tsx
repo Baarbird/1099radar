@@ -12,7 +12,7 @@ export function ContentArea({ topic }: ContentAreaProps) {
   const content = federalRulesContent[topic];
 
   return (
-    <div className="w-full md:w-[90%] md:ml-[10%] min-h-screen bg-background pt-24 md:pt-0">
+    <div className="w-full md:w-[80%] md:ml-[20%] min-h-screen bg-background pt-24 md:pt-0">
       <div className="w-full px-6 md:px-12 lg:px-16 py-12 md:py-16">
         <div className="w-full max-w-6xl mx-auto space-y-8">
           {/* Header with Image */}
