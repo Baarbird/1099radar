@@ -2,23 +2,33 @@
 
 import { cn } from "@/lib/utils";
 
-// Map illustration names to local SVG files from undraw-svg-collection
+// Map illustration names to local SVG files
+// Using custom downloaded SVGs from unDraw.co
 const illustrationPaths: Record<string, string> = {
-  "searching": "/illustrations/searching.svg",
-  "alarm": "/illustrations/alarm.svg",
-  "learning": "/illustrations/learning.svg",
-  "checklist": "/illustrations/checklist.svg",
-  "documents": "/illustrations/documents.svg",
-  "team": "/illustrations/team.svg",
-  "calculator": "/illustrations/calculator.svg",
-  "calendar": "/illustrations/calendar.svg",
-  "decide": "/illustrations/decide.svg",
-  "warning": "/illustrations/warning.svg",
-  "radar": "/illustrations/radar.svg",
+  // Your custom downloaded illustrations
+  "searching": "/illustrations/idea-sketching.svg",
+  "alarm": "/illustrations/stepping-up.svg",
+  "learning": "/illustrations/online-meeting.svg",
+  "checklist": "/illustrations/investing.svg",
+  "documents": "/illustrations/large-language-models.svg",
+  "team": "/illustrations/online-meeting.svg",
+  "calculator": "/illustrations/investing.svg",
+  "calendar": "/illustrations/stepping-up.svg",
+  "decide": "/illustrations/too-many-options.svg",
+  "warning": "/illustrations/too-many-options.svg",
+  "radar": "/illustrations/idea-sketching.svg",
+  
+  // Direct access to all illustrations
+  "idea-sketching": "/illustrations/idea-sketching.svg",
+  "investing": "/illustrations/investing.svg",
+  "large-language-models": "/illustrations/large-language-models.svg",
+  "online-meeting": "/illustrations/online-meeting.svg",
+  "stepping-up": "/illustrations/stepping-up.svg",
+  "too-many-options": "/illustrations/too-many-options.svg",
   "taking-notes": "/illustrations/taking-notes.svg",
 };
 
-const fallbackPath = "/illustrations/searching.svg";
+const fallbackPath = "/illustrations/idea-sketching.svg";
 
 interface UndrawIllustrationProps {
   name: keyof typeof illustrationPaths | string;
