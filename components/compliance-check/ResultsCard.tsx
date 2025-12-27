@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { DefensibleRiskReport } from "@/types/compliance";
 import { RiskDial } from "@/components/shared/RiskDial";
 import { FactorBreakdown } from "./FactorBreakdown";
-import { generatePDFDownloadLink } from "@/lib/pdf-generator";
+import { PDFDownloadButton } from "@/components/pdf/PDFDownloadButton";
 import { FileText, Download, RotateCcw, Clock } from "lucide-react";
 
 interface ResultsCardProps {
@@ -92,9 +92,7 @@ export function ResultsCard({
           {/* PDF Download */}
           <div className="flex items-center justify-center pt-4 border-t">
             <div className="flex items-center gap-2">
-              <div className="inline-flex">
-                {generatePDFDownloadLink(report)}
-              </div>
+              <PDFDownloadButton report={report} />
               <Button onClick={onStartOver} variant="outline" className="gap-2">
                 <RotateCcw className="h-4 w-4" />
                 Start New Assessment
