@@ -1,125 +1,178 @@
+"use client";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ComplianceResults } from "@/types/compliance";
-import { RiskScore } from "@/components/shared/RiskScore";
-import { FileText, AlertCircle, CheckCircle2, ListChecks } from "lucide-react";
+import { DefensibleRiskReport } from "@/types/compliance";
+import { RiskDial } from "@/components/shared/RiskDial";
+import { FactorBreakdown } from "./FactorBreakdown";
+import { generatePDFDownloadLink } from "@/lib/pdf-generator";
+import { FileText, Download, RotateCcw, Clock } from "lucide-react";
 
 interface ResultsCardProps {
-  results: ComplianceResults;
+  report: DefensibleRiskReport;
+  reportingForm?: "1099-NEC" | "1099-MISC" | "none";
+  missingItems?: string[];
+  nextSteps?: string[];
   onStartOver: () => void;
 }
 
-export function ResultsCard({ results, onStartOver }: ResultsCardProps) {
+export function ResultsCard({
+  report,
+  reportingForm,
+  missingItems = [],
+  nextSteps = [],
+  onStartOver,
+}: ResultsCardProps) {
   const getRiskBadgeVariant = () => {
-    if (results.classificationRisk === "low") return "default";
-    if (results.classificationRisk === "medium") return "secondary";
+    if (report.level === "low") return "default";
+    if (report.level === "medium") return "secondary";
     return "destructive";
   };
 
   const getFormBadgeVariant = () => {
-    if (results.reportingForm === "none") return "outline";
+    if (!reportingForm || reportingForm === "none") return "outline";
     return "default";
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-6xl mx-auto space-y-6">
+      {/* Main Risk Score Card */}
       <Card className="border-2">
         <CardHeader>
-          <CardTitle className="text-2xl">Your Compliance Assessment</CardTitle>
-          <CardDescription className="text-base">
-            Based on your answers, here's what you need to know
-          </CardDescription>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle className="text-3xl">Defensible Risk Assessment</CardTitle>
+              <CardDescription className="text-base mt-2">
+                Comprehensive misclassification risk analysis with IRS-aligned audit trail
+              </CardDescription>
+            </div>
+            <div className="text-right text-sm text-muted-foreground">
+              <div className="flex items-center gap-1 mb-1">
+                <Clock className="h-4 w-4" />
+                <span>{new Date(report.generatedAt).toLocaleString()}</span>
+              </div>
+              <div className="text-xs">Engine v{report.version}</div>
+            </div>
+          </div>
         </CardHeader>
-        <CardContent className="space-y-6">
-          {/* Reporting Form */}
-          <div className="space-y-2">
+        <CardContent className="space-y-8">
+          {/* Risk Score Dial */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 py-8">
+            <RiskDial score={report.score} size={220} />
+            <div className="flex-1 space-y-4 max-w-md">
+              <div>
+                <Badge
+                  variant={getRiskBadgeVariant()}
+                  className="text-lg px-4 py-2 capitalize mb-3"
+                >
+                  {report.level} Risk
+                </Badge>
+                <p className="text-base leading-relaxed text-foreground">
+                  {report.summary}
+                </p>
+              </div>
+              <div className="grid grid-cols-3 gap-4 pt-4 border-t">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-600">{report.behavioralScore}</div>
+                  <div className="text-xs text-muted-foreground">Behavioral</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">{report.financialScore}</div>
+                  <div className="text-xs text-muted-foreground">Financial</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-600">{report.relationshipScore}</div>
+                  <div className="text-xs text-muted-foreground">Relationship</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* PDF Download */}
+          <div className="flex items-center justify-center pt-4 border-t">
+            <div className="flex items-center gap-2">
+              <div className="inline-flex">
+                {generatePDFDownloadLink(report)}
+              </div>
+              <Button onClick={onStartOver} variant="outline" className="gap-2">
+                <RotateCcw className="h-4 w-4" />
+                Start New Assessment
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Factor Breakdown */}
+      <FactorBreakdown
+        factors={report.factors}
+        behavioralScore={report.behavioralScore}
+        financialScore={report.financialScore}
+        relationshipScore={report.relationshipScore}
+      />
+
+      {/* Reporting Form (if provided) */}
+      {reportingForm && (
+        <Card>
+          <CardHeader>
             <div className="flex items-center gap-2">
               <FileText className="h-5 w-5 text-muted-foreground" />
-              <h3 className="text-lg font-semibold">Likely Reporting Form</h3>
+              <CardTitle className="text-lg">Likely Reporting Form</CardTitle>
             </div>
+          </CardHeader>
+          <CardContent>
             <div className="flex items-center gap-3">
               <Badge variant={getFormBadgeVariant()} className="text-base px-3 py-1">
-                {results.reportingForm === "none"
+                {reportingForm === "none"
                   ? "No form required"
-                  : `Form ${results.reportingForm}`}
+                  : `Form ${reportingForm}`}
               </Badge>
-              {results.reportingForm !== "none" && (
+              {reportingForm !== "none" && (
                 <p className="text-sm text-muted-foreground">
                   You'll need to file this form if payments total $600 or more for the year.
                 </p>
               )}
-              {results.reportingForm === "none" && (
-                <p className="text-sm text-muted-foreground">
-                  Payments under $600 typically don't require a 1099 form.
-                </p>
-              )}
             </div>
-          </div>
+          </CardContent>
+        </Card>
+      )}
 
-          {/* Classification Risk */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <AlertCircle className="h-5 w-5 text-muted-foreground" />
-              <h3 className="text-lg font-semibold">Classification Risk</h3>
-            </div>
-            <div className="flex items-center gap-3">
-              <Badge variant={getRiskBadgeVariant()} className="text-base px-3 py-1 capitalize">
-                {results.classificationRisk} Risk
-              </Badge>
-              <p className="text-sm text-muted-foreground">
-                {results.classificationRisk === "low" &&
-                  "Your arrangement appears to be properly classified as an independent contractor."}
-                {results.classificationRisk === "medium" &&
-                  "There are some indicators that suggest reviewing your classification."}
-                {results.classificationRisk === "high" &&
-                  "There are strong indicators that this might be an employee relationship. Review carefully."}
-              </p>
-            </div>
-          </div>
+      {/* Missing Items */}
+      {missingItems.length > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Key Missing Items</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="list-disc list-inside space-y-2">
+              {missingItems.map((item, index) => (
+                <li key={index} className="text-sm text-muted-foreground">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      )}
 
-          {/* Risk Score */}
-          <RiskScore score={results.riskScore} explanation={results.riskExplanation} />
-
-          {/* Missing Items */}
-          {results.missingItems.length > 0 && (
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <ListChecks className="h-5 w-5 text-muted-foreground" />
-                <h3 className="text-lg font-semibold">Key Missing Items</h3>
-              </div>
-              <ul className="list-disc list-inside space-y-1 ml-2">
-                {results.missingItems.map((item, index) => (
-                  <li key={index} className="text-sm text-muted-foreground">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Next Steps */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-5 w-5 text-muted-foreground" />
-              <h3 className="text-lg font-semibold">Recommended Next Steps</h3>
-            </div>
-            <ol className="list-decimal list-inside space-y-2 ml-2">
-              {results.nextSteps.map((step, index) => (
+      {/* Next Steps */}
+      {nextSteps.length > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Recommended Next Steps</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ol className="list-decimal list-inside space-y-2">
+              {nextSteps.map((step, index) => (
                 <li key={index} className="text-sm text-muted-foreground">
                   {step}
                 </li>
               ))}
             </ol>
-          </div>
-
-          <div className="pt-4 border-t">
-            <Button onClick={onStartOver} variant="outline" className="w-full sm:w-auto">
-              Start Over
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }

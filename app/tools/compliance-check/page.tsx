@@ -7,17 +7,14 @@ import { QuestionCard } from "@/components/compliance-check/QuestionCard";
 import { ProgressIndicator } from "@/components/compliance-check/ProgressIndicator";
 import { ResultsCard } from "@/components/compliance-check/ResultsCard";
 import { complianceQuestions } from "@/lib/compliance-logic";
+import { calculateDefensibleRiskScore } from "@/lib/risk-engine";
 import {
-  calculateRiskFactors,
-  calculateRiskScore,
-  getRiskExplanation,
-  getClassificationRisk,
   getReportingForm,
   getMissingItems,
   getNextSteps,
 } from "@/lib/risk-scoring";
-import { ComplianceResults } from "@/types/compliance";
-import { saveComplianceResults, saveAnswers, clearAnswers, loadAnswers } from "@/lib/storage";
+import { DefensibleRiskReport } from "@/types/compliance";
+import { saveAnswers, clearAnswers, loadAnswers } from "@/lib/storage";
 import { ArrowRight, Shield } from "lucide-react";
 import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
@@ -27,7 +24,7 @@ export default function ComplianceCheckPage() {
   const [step, setStep] = useState<Step>("welcome");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
-  const [results, setResults] = useState<ComplianceResults | null>(null);
+  const [riskReport, setRiskReport] = useState<DefensibleRiskReport | null>(null);
 
   // Load saved answers on mount
   useEffect(() => {
@@ -54,27 +51,9 @@ export default function ComplianceCheckPage() {
     if (currentQuestionIndex < complianceQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      // Calculate results
-      const riskFactors = calculateRiskFactors(answers);
-      const riskScore = calculateRiskScore(riskFactors);
-      const riskExplanation = getRiskExplanation(riskScore);
-      const classificationRisk = getClassificationRisk(answers);
-      const reportingForm = getReportingForm(answers);
-      const missingItems = getMissingItems(answers);
-
-      const newResults: ComplianceResults = {
-        reportingForm,
-        classificationRisk,
-        riskScore,
-        riskExplanation,
-        missingItems,
-        nextSteps: [],
-        answers,
-      };
-
-      newResults.nextSteps = getNextSteps(newResults);
-      setResults(newResults);
-      saveComplianceResults(newResults);
+      // Calculate defensible risk score with audit trail
+      const report = calculateDefensibleRiskScore(answers);
+      setRiskReport(report);
       setStep("results");
     }
   };
@@ -89,7 +68,7 @@ export default function ComplianceCheckPage() {
     setStep("welcome");
     setCurrentQuestionIndex(0);
     setAnswers({});
-    setResults(null);
+    setRiskReport(null);
     clearAnswers();
   };
 
@@ -107,17 +86,17 @@ export default function ComplianceCheckPage() {
                 Risk Assessment
               </div>
               <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl text-foreground leading-[1.1]">
-                Free <span className="text-primary underline decoration-primary/20 underline-offset-8">Compliance</span> Check
+                Defensible <span className="text-primary underline decoration-primary/20 underline-offset-8">Risk</span> Score
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed font-normal max-w-2xl">
-                Answer a few simple questions to understand your federal compliance requirements, classification risk, and missing documentation.
+                Answer 20 IRS-aligned questions to get a comprehensive misclassification risk assessment with a downloadable audit trail report.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  "1099 form determination",
-                  "Classification risk level",
-                  "Missing documentation",
-                  "Recommended next steps"
+                  "0-100 risk score",
+                  "IRS factor breakdown",
+                  "Defensible audit trail",
+                  "Downloadable PDF report"
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 p-3 rounded-2xl bg-muted/30 border border-border/40">
                     <div className="h-2 w-2 rounded-full bg-primary" />
@@ -167,10 +146,39 @@ export default function ComplianceCheckPage() {
     );
   }
 
-  if (step === "results" && results) {
+  if (step === "results" && riskReport) {
+    // Get additional administrative info
+    const reportingForm = getReportingForm(answers);
+    const missingItems = getMissingItems(answers);
+    
+    // Generate next steps based on risk report
+    const nextSteps: string[] = [];
+    if (riskReport.level === "high") {
+      nextSteps.push("Review contractor classification - consider consulting with a tax professional");
+      nextSteps.push("Document the independent contractor relationship clearly in writing");
+    } else if (riskReport.level === "medium") {
+      nextSteps.push("Review contractor classification factors to ensure proper classification");
+    }
+    if (reportingForm !== "none") {
+      nextSteps.push(`Collect a completed W-9 form before making payments (required for ${reportingForm})`);
+      nextSteps.push(`File ${reportingForm} by January 31st for the previous tax year`);
+    }
+    if (missingItems.length > 0) {
+      nextSteps.push("Gather missing documentation listed above");
+    }
+    if (riskReport.score >= 70) {
+      nextSteps.push("Consider consulting with a tax professional or accountant for guidance");
+    }
+
     return (
       <div className="container px-6 py-16 md:py-24">
-        <ResultsCard results={results} onStartOver={handleStartOver} />
+        <ResultsCard
+          report={riskReport}
+          reportingForm={reportingForm}
+          missingItems={missingItems}
+          nextSteps={nextSteps}
+          onStartOver={handleStartOver}
+        />
       </div>
     );
   }
