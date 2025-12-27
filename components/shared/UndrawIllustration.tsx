@@ -1,3 +1,4 @@
+import React from "react";
 import { cn } from "@/lib/utils";
 
 interface UndrawIllustrationProps {
@@ -5,7 +6,7 @@ interface UndrawIllustrationProps {
   className?: string;
 }
 
-const illustrations: Record<string, JSX.Element> = {
+const illustrations: Record<string, React.ReactElement> = {
   searching: (
     <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Person with magnifying glass */}

@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Radar, Calendar, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
