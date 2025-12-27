@@ -99,6 +99,13 @@ export default function ComplianceCheckPage() {
     return (
       <div className="container px-6 py-24 md:py-32">
         <div className="mx-auto max-w-2xl">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="https://assets.manypixels.co/illustrations/checklist" 
+              alt="Compliance checklist illustration" 
+              className="w-full max-w-md h-auto"
+            />
+          </div>
           <Card className="border border-border/40 bg-card/50">
             <CardHeader>
               <CardTitle className="text-4xl font-semibold tracking-tight">Free Compliance Check</CardTitle>

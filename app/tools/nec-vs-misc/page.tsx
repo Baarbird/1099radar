@@ -7,6 +7,13 @@ export default function NECvsMISCPage() {
     <div className="container px-6 py-24 md:py-32">
       <div className="mx-auto max-w-4xl space-y-12">
         <div className="text-center space-y-6">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="https://assets.manypixels.co/illustrations/documents" 
+              alt="Documents illustration" 
+              className="w-full max-w-md h-auto"
+            />
+          </div>
           <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">1099-NEC vs 1099-MISC</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Not sure which form to use? Here's a clear breakdown of when to use each form.

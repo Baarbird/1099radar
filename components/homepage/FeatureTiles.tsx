@@ -45,7 +45,7 @@ export function FeatureTiles() {
                   src={feature.image}
                   alt={feature.title}
                   fill
-                  className="object-cover opacity-20 group-hover:opacity-30 transition-opacity"
+                  className="object-cover opacity-60 group-hover:opacity-70 transition-opacity"
                 />
               </div>
               <CardHeader>

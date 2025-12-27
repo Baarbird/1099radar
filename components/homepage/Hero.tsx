@@ -11,7 +11,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
       
       {/* Background image */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-20">
         <Image
           src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80"
           alt="Business office background"

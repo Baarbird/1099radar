@@ -47,6 +47,13 @@ export default function RadarPage() {
     <div className="container px-6 py-24 md:py-32">
       <div className="mx-auto max-w-4xl space-y-12">
         <div className="text-center space-y-6">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="https://assets.manypixels.co/illustrations/radar" 
+              alt="Radar monitoring illustration" 
+              className="w-full max-w-md h-auto"
+            />
+          </div>
           <div className="flex items-center justify-center gap-3">
             <Radar className="h-12 w-12 text-primary/60" />
             <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">Federal Updates Radar</h1>

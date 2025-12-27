@@ -21,6 +21,13 @@ export default function CalculatorPage() {
     <div className="container px-6 py-24 md:py-32">
       <div className="mx-auto max-w-2xl space-y-12">
         <div className="text-center space-y-6">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="https://assets.manypixels.co/illustrations/calculator" 
+              alt="Calculator illustration" 
+              className="w-full max-w-md h-auto"
+            />
+          </div>
           <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">Rate & Tax Calculator</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             Estimate contractor rates and understand tax implications.

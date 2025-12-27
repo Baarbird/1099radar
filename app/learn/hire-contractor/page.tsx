@@ -70,6 +70,13 @@ export default function HireContractorPage() {
     <div className="container px-6 py-24 md:py-32">
       <div className="mx-auto max-w-4xl space-y-12">
         <div className="text-center space-y-6">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="https://assets.manypixels.co/illustrations/team" 
+              alt="Team collaboration illustration" 
+              className="w-full max-w-md h-auto"
+            />
+          </div>
           <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">How to Hire a 1099 Contractor (Federal)</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             A step-by-step guide to properly hiring and working with independent contractors under federal rules.

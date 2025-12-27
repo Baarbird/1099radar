@@ -68,7 +68,7 @@ export function FreeTools() {
                         src={tool.image}
                         alt={tool.title}
                         fill
-                        className="object-cover opacity-15 group-hover:opacity-20 transition-opacity"
+                        className="object-cover opacity-60 group-hover:opacity-70 transition-opacity"
                       />
                     </div>
                     <div className="flex flex-col">
@@ -98,7 +98,7 @@ export function FreeTools() {
                         src={tool.image}
                         alt={tool.title}
                         fill
-                        className="object-cover opacity-15 group-hover:opacity-20 transition-opacity"
+                        className="object-cover opacity-60 group-hover:opacity-70 transition-opacity"
                       />
                     </div>
                     <CardHeader>
