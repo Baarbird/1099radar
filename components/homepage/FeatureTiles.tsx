@@ -9,25 +9,25 @@ const features = [
     icon: Shield,
     title: "Federal Focus",
     description: "Clear guidance on federal contractor rules, no state complexity.",
-    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_searching_re_8v0v.svg",
+    image: "https://assets.manypixels.co/illustrations/searching",
   },
   {
     icon: Clock,
     title: "Real-Time Updates",
     description: "Stay informed about changes to federal guidance and deadlines.",
-    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_alarm_ringing_re_8v0v.svg",
+    image: "https://assets.manypixels.co/illustrations/alarm",
   },
   {
     icon: BookOpen,
     title: "Clear Guidance",
     description: "Plain English explanations, not overwhelming legalese.",
-    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_learning_to_sketch_re_8v0v.svg",
+    image: "https://assets.manypixels.co/illustrations/learning",
   },
   {
     icon: Wrench,
     title: "Free Tools",
     description: "Interactive tools to check compliance and make decisions.",
-    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_check_boxes_re_8v0v.svg",
+    image: "https://assets.manypixels.co/illustrations/checklist",
   },
 ];
 

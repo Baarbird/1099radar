@@ -12,7 +12,7 @@ const tools = [
     description: "Answer a few questions to see what forms you need and identify compliance gaps.",
     href: "/tools/compliance-check",
     featured: true,
-    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_checklist_re_8v0v.svg",
+    image: "https://assets.manypixels.co/illustrations/checklist",
   },
   {
     icon: FileText,
@@ -20,7 +20,7 @@ const tools = [
     description: "Not sure which form to use? This tool helps you decide based on payment type.",
     href: "/tools/nec-vs-misc",
     featured: false,
-    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_documents_re_8v0v.svg",
+    image: "https://assets.manypixels.co/illustrations/documents",
   },
   {
     icon: Users,
@@ -28,7 +28,7 @@ const tools = [
     description: "Understand the key differences and classification factors for federal rules.",
     href: "/tools/classification",
     featured: false,
-    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_team_re_8v0v.svg",
+    image: "https://assets.manypixels.co/illustrations/team",
   },
   {
     icon: Calculator,
@@ -36,7 +36,7 @@ const tools = [
     description: "Calculate contractor rates and understand tax implications.",
     href: "/tools/calculator",
     featured: false,
-    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_calculator_re_8v0v.svg",
+    image: "https://assets.manypixels.co/illustrations/calculator",
   },
 ];
 

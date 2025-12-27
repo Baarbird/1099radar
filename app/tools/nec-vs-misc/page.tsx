@@ -27,7 +27,7 @@ export default function NECvsMISCPage() {
           </div>
           <div className="relative order-first lg:order-last p-8">
             <img 
-              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_documents_re_8v0v.svg" 
+              src="https://assets.manypixels.co/illustrations/documents" 
               alt="Forms illustration" 
               className="w-full h-auto drop-shadow-2xl animate-in slide-in-from-top-8 duration-700"
             />

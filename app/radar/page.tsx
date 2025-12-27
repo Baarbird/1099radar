@@ -62,7 +62,7 @@ export default function RadarPage() {
           </div>
           <div className="relative order-first lg:order-last p-8">
             <img 
-              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_radar_re_8v0v.svg" 
+              src="https://assets.manypixels.co/illustrations/radar" 
               alt="Radar monitoring illustration" 
               className="w-full h-auto drop-shadow-2xl animate-in zoom-in duration-1000"
             />

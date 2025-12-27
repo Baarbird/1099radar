@@ -83,7 +83,7 @@ export default function DeadlinesPage() {
           </div>
           <div className="relative order-first lg:order-last">
             <img 
-              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_calendar_re_i4u4.svg" 
+              src="https://assets.manypixels.co/illustrations/calendar" 
               alt="Calendar illustration" 
               className="w-full h-auto drop-shadow-xl"
             />

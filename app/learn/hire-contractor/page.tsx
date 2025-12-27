@@ -88,7 +88,7 @@ export default function HireContractorPage() {
           </div>
           <div className="relative order-first lg:order-last p-8">
             <img 
-              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_team_re_8v0v.svg" 
+              src="https://assets.manypixels.co/illustrations/team" 
               alt="Hiring team illustration" 
               className="w-full h-auto drop-shadow-2xl animate-in fade-in zoom-in duration-700"
             />
@@ -128,7 +128,7 @@ export default function HireContractorPage() {
                 </div>
                 <div className="w-full lg:w-1/2 p-8 flex justify-center bg-muted/20 rounded-3xl">
                   <img 
-                    src={`https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_${step.number === 1 ? 'decide' : step.number === 2 ? 'documents' : step.number === 3 ? 'agreement' : step.number === 4 ? 'online_payment' : 'all_the_data'}_re_8v0v.svg`}
+                    src={`https://assets.manypixels.co/illustrations/${step.number === 1 ? 'decide' : step.number === 2 ? 'documents' : step.number === 3 ? 'agreement' : step.number === 4 ? 'online_payment' : 'all_the_data'}`}
                     alt={step.title}
                     className="w-full max-w-sm h-auto opacity-80"
                   />

@@ -37,7 +37,7 @@ export default function CalculatorPage() {
           </div>
           <div className="relative">
             <img 
-              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_calculator_re_8v0v.svg" 
+              src="https://assets.manypixels.co/illustrations/calculator" 
               alt="Calculator illustration" 
               className="w-full h-auto drop-shadow-xl"
             />

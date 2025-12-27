@@ -25,7 +25,7 @@ export default function ClassificationPage() {
           </div>
           <div className="relative order-first lg:order-last p-8">
             <img 
-              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_decide_re_8v0v.svg" 
+              src="https://assets.manypixels.co/illustrations/decide" 
               alt="Decision making illustration" 
               className="w-full h-auto drop-shadow-2xl animate-in fade-in slide-in-from-right-8 duration-700"
             />

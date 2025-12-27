@@ -62,7 +62,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_decide_re_8v0v.svg"
+    imageUrl: "https://assets.manypixels.co/illustrations/decide"
   },
   forms: {
     id: "forms",
@@ -111,7 +111,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_documents_re_8v0v.svg"
+    imageUrl: "https://assets.manypixels.co/illustrations/documents"
   },
   deadlines: {
     id: "deadlines",
@@ -155,7 +155,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_calendar_re_i4u4.svg"
+    imageUrl: "https://assets.manypixels.co/illustrations/calendar"
   },
   penalties: {
     id: "penalties",
@@ -200,7 +200,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_warning_re_8v0v.svg"
+    imageUrl: "https://assets.manypixels.co/illustrations/warning"
   },
   requirements: {
     id: "requirements",
@@ -256,7 +256,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_checklist_re_8v0v.svg"
+    imageUrl: "https://assets.manypixels.co/illustrations/checklist"
   }
 };
 

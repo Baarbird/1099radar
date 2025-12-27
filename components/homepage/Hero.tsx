@@ -55,9 +55,14 @@ export function Hero() {
           <div className="relative animate-in fade-in zoom-in-95 duration-1000 delay-200">
             <div className="relative z-10 w-full h-auto p-8">
               <img 
-                src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_searching_re_8v0v.svg" 
+                src="https://assets.manypixels.co/illustrations/searching" 
                 alt="Contractor compliance illustration" 
                 className="w-full h-auto drop-shadow-2xl"
+                onError={(e) => {
+                  // Fallback to a simple SVG if CDN fails
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
               />
             </div>
             {/* Decorative bits and pieces */}

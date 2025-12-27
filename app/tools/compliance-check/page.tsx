@@ -133,7 +133,7 @@ export default function ComplianceCheckPage() {
             </div>
             <div className="relative order-first lg:order-last p-8">
               <img 
-                src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_checklist_re_8v0v.svg" 
+                src="https://assets.manypixels.co/illustrations/checklist" 
                 alt="Compliance checklist illustration" 
                 className="w-full h-auto drop-shadow-2xl animate-in fade-in zoom-in duration-1000"
               />

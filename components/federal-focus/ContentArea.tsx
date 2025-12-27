@@ -38,7 +38,7 @@ export function ContentArea({ topic }: ContentAreaProps) {
                 className="w-full h-auto drop-shadow-2xl animate-in fade-in zoom-in duration-700"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_searching_re_8v0v.svg";
+                  target.src = "https://assets.manypixels.co/illustrations/searching";
                 }}
               />
             </div>

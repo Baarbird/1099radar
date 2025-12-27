@@ -47,7 +47,7 @@ export function RadarPreview() {
           </div>
           <div className="relative">
             <img 
-              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_radar_re_8v0v.svg" 
+              src="https://assets.manypixels.co/illustrations/radar" 
               alt="Radar illustration" 
               className="w-full h-auto drop-shadow-xl animate-pulse duration-[4000ms]"
             />
