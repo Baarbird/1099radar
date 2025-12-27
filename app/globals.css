@@ -121,9 +121,20 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(at 0% 0%, oklch(0.95 0.05 280 / 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, oklch(0.45 0.18 280 / 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, oklch(0.95 0.05 280 / 0.15) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, oklch(0.45 0.18 280 / 0.08) 0px, transparent 50%),
+      linear-gradient(180deg, oklch(1 0 0 / 0) 0%, oklch(0.45 0.18 280 / 0.02) 100%);
+    background-attachment: fixed;
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dynamic-blob {
+    @apply absolute blur-3xl rounded-full opacity-20 animate-pulse;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;

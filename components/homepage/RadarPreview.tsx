@@ -18,22 +18,46 @@ const recentUpdates = [
 
 export function RadarPreview() {
   return (
-    <section className="bg-background container px-6 py-24 md:py-32">
+    <section className="bg-transparent container px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <div className="flex items-center justify-between mb-16">
-          <div>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6 text-foreground">
-              Federal Updates Radar
-            </h2>
-            <p className="text-xl text-muted-foreground font-normal">
-              Stay informed about changes to federal contractor rules and deadlines.
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="p-3 rounded-2xl bg-primary/10">
+                <Radar className="h-8 w-8 text-primary" />
+              </div>
+              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-foreground">
+                Federal Radar
+              </h2>
+            </div>
+            <p className="text-xl text-muted-foreground font-normal leading-relaxed">
+              Stay ahead of the curve. We monitor federal contractor rules and deadlines in real-time so you don't have to.
             </p>
+            <div className="flex items-center gap-8 pt-4">
+              <div className="text-center">
+                <p className="text-3xl font-bold text-primary">24/7</p>
+                <p className="text-sm text-muted-foreground">Monitoring</p>
+              </div>
+              <div className="h-10 w-px bg-border/50" />
+              <div className="text-center">
+                <p className="text-3xl font-bold text-primary">100%</p>
+                <p className="text-sm text-muted-foreground">Federal Focus</p>
+              </div>
+            </div>
           </div>
-          <Radar className="h-12 w-12 text-primary/70 hidden md:block" />
+          <div className="relative">
+            <img 
+              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_radar_re_8v0v.svg" 
+              alt="Radar illustration" 
+              className="w-full h-auto drop-shadow-xl animate-pulse duration-[4000ms]"
+            />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/20 rounded-full blur-3xl -z-10" />
+          </div>
         </div>
+
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mb-10">
           {recentUpdates.map((update) => (
-            <Card key={update.date} className="border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl bg-card group shadow-sm">
+            <Card key={update.date} className="border border-border/50 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl bg-card/80 backdrop-blur-sm group shadow-sm">
               <CardHeader>
                 <div className="flex items-center justify-between mb-4">
                   <CardTitle className="text-xl font-bold text-foreground">{update.title}</CardTitle>
@@ -51,7 +75,7 @@ export function RadarPreview() {
           ))}
         </div>
         <div className="text-center">
-          <Button asChild variant="outline" size="lg" className="h-12 rounded-xl border-2 shadow-sm hover:shadow-md transition-shadow">
+          <Button asChild variant="outline" size="lg" className="h-14 px-8 rounded-2xl border-2 shadow-sm hover:shadow-xl transition-all hover:scale-105 active:scale-95">
             <Link href="/radar">
               View all updates
               <ArrowRight className="ml-2 h-5 w-5" />

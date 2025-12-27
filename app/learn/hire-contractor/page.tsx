@@ -68,81 +68,117 @@ const steps = [
 export default function HireContractorPage() {
   return (
     <div className="container px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-4xl space-y-12">
-        <div className="text-center space-y-6">
-          <div className="flex justify-center mb-6">
+      <div className="mx-auto max-w-5xl space-y-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6 text-left">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl text-foreground">
+              Hiring a <span className="text-primary">Contractor</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed font-normal">
+              A step-by-step guide to properly onboarding independent contractors under federal rules. Build strong partnerships while staying compliant.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {["Federal Compliance", "W-9 Collection", "Agreements"].map((tag) => (
+                <div key={tag} className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative order-first lg:order-last p-8">
             <img 
-              src="https://assets.manypixels.co/illustrations/team" 
-              alt="Team collaboration illustration" 
-              className="w-full max-w-md h-auto"
+              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_team_re_8v0v.svg" 
+              alt="Hiring team illustration" 
+              className="w-full h-auto drop-shadow-2xl animate-in fade-in zoom-in duration-700"
             />
           </div>
-          <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">How to Hire a 1099 Contractor (Federal)</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            A step-by-step guide to properly hiring and working with independent contractors under federal rules.
-          </p>
         </div>
 
-        {/* Example infographic - user can replace with their NotebookLM-designed graphics */}
-        {/* <Infographic 
-          src="/infographics/hire-contractor-process.png"
-          alt="Hiring a 1099 contractor process flow"
-          caption="Visual guide to the contractor hiring process"
-        /> */}
-
-        <div className="space-y-8">
-          {steps.map((step) => {
+        <div className="space-y-12">
+          {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <Card key={step.number} className="border border-border/40 hover:border-border transition-all duration-200 hover:shadow-sm bg-card/50">
-                <CardHeader>
-                  <div className="flex items-start gap-6">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-foreground/5 text-foreground font-semibold text-lg">
+              <div key={step.number} className={cn(
+                "flex flex-col lg:flex-row gap-8 items-center",
+                index % 2 === 1 ? "lg:flex-row-reverse" : ""
+              )}>
+                <div className="w-full lg:w-1/2 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground font-bold text-xl shadow-lg shadow-primary/20">
                       {step.number}
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <Icon className="h-5 w-5 text-foreground/60" />
-                        <CardTitle className="text-2xl font-semibold">{step.title}</CardTitle>
-                      </div>
-                      <CardDescription className="text-base leading-relaxed">
-                        {step.description}
-                      </CardDescription>
-                    </div>
+                    <h2 className="text-3xl font-bold tracking-tight">{step.title}</h2>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="list-disc list-inside space-y-2 text-base text-muted-foreground leading-relaxed ml-14">
-                    {step.details.map((detail, index) => (
-                      <li key={index}>{detail}</li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                  <p className="text-lg text-muted-foreground leading-relaxed font-normal">
+                    {step.description}
+                  </p>
+                  <Card className="border border-border/40 bg-card/50 backdrop-blur-sm">
+                    <CardContent className="p-6">
+                      <ul className="space-y-3 list-none p-0">
+                        {step.details.map((detail, idx) => (
+                          <li key={idx} className="flex items-start gap-3 text-muted-foreground">
+                            <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div className="w-full lg:w-1/2 p-8 flex justify-center bg-muted/20 rounded-3xl">
+                  <img 
+                    src={`https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_${step.number === 1 ? 'decide' : step.number === 2 ? 'documents' : step.number === 3 ? 'agreement' : step.number === 4 ? 'online_payment' : 'all_the_data'}_re_8v0v.svg`}
+                    alt={step.title}
+                    className="w-full max-w-sm h-auto opacity-80"
+                  />
+                </div>
+              </div>
             );
           })}
         </div>
 
-        <Card className="border border-border/40 bg-card/50">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold">Important Reminders</CardTitle>
+        <Card className="border border-border/40 bg-primary text-primary-foreground overflow-hidden relative">
+          <div className="absolute top-0 right-0 p-8 opacity-10">
+            <Shield className="h-64 w-64" />
+          </div>
+          <CardHeader className="relative z-10 p-8 lg:p-12">
+            <CardTitle className="text-3xl font-bold mb-4">Important Reminders</CardTitle>
+            <CardContent className="p-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <ul className="space-y-4 list-none p-0">
+                  {[
+                    "No benefits (health, PTO, etc.)",
+                    "No schedule control",
+                    "Contractor provides own tools"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 font-medium">
+                      <div className="h-2 w-2 rounded-full bg-white" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <ul className="space-y-4 list-none p-0">
+                  {[
+                    "Contractor pays own taxes",
+                    "Keep records for 4 years",
+                    "Annual classification review"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 font-medium">
+                      <div className="h-2 w-2 rounded-full bg-white" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </CardContent>
           </CardHeader>
-          <CardContent>
-            <ul className="list-disc list-inside space-y-3 text-base text-muted-foreground leading-relaxed ml-2">
-              <li>Do not provide benefits (health insurance, PTO, retirement) to contractors</li>
-              <li>Do not control their schedule or how they perform the work</li>
-              <li>Do not provide tools, equipment, or materials (unless specified in contract)</li>
-              <li>Contractors are responsible for their own taxes and self-employment tax</li>
-              <li>Keep all documentation (W-9, contracts, payment records) for at least 4 years</li>
-            </ul>
-          </CardContent>
         </Card>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-          <Button asChild variant="outline" size="lg" className="h-11">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+          <Button asChild variant="outline" size="lg" className="h-14 px-8 rounded-2xl border-2 hover:scale-105 transition-all">
             <Link href="/tools/compliance-check">Check Your Compliance</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="h-11">
+          <Button asChild variant="outline" size="lg" className="h-14 px-8 rounded-2xl border-2 hover:scale-105 transition-all">
             <Link href="/tools/classification">Learn About Classification</Link>
           </Button>
         </div>

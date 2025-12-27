@@ -19,100 +19,122 @@ export default function CalculatorPage() {
 
   return (
     <div className="container px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-2xl space-y-12">
-        <div className="text-center space-y-6">
-          <div className="flex justify-center mb-6">
+      <div className="mx-auto max-w-5xl space-y-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6 text-left order-last lg:order-first">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl text-foreground">
+              Rate & Tax <span className="text-primary">Calculator</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed font-normal">
+              Estimate contractor rates and understand federal tax implications. Independent contractors are responsible for their own Social Security and Medicare taxes.
+            </p>
+            <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10 flex items-center gap-4">
+              <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                <Calculator className="h-5 w-5" />
+              </div>
+              <p className="text-sm font-medium text-muted-foreground">Self-employment tax rate: 15.3% (2024)</p>
+            </div>
+          </div>
+          <div className="relative">
             <img 
-              src="https://assets.manypixels.co/illustrations/calculator" 
+              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_calculator_re_8v0v.svg" 
               alt="Calculator illustration" 
-              className="w-full max-w-md h-auto"
+              className="w-full h-auto drop-shadow-xl"
             />
           </div>
-          <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">Rate & Tax Calculator</h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            Estimate contractor rates and understand tax implications.
-          </p>
         </div>
 
-        <Card className="border border-border/40 bg-card/50">
-          <CardHeader>
-            <div className="flex items-center gap-3">
-              <Calculator className="h-6 w-6 text-foreground/60" />
-              <CardTitle className="text-2xl font-semibold">Calculator</CardTitle>
-            </div>
-            <CardDescription className="text-base leading-relaxed">
-              Enter your hourly rate and hours to see estimated calculations
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-8">
-            <div className="space-y-3">
-              <Label htmlFor="rate" className="text-base">Hourly Rate ($)</Label>
-              <Input
-                id="rate"
-                type="number"
-                placeholder="e.g., 50"
-                value={hourlyRate}
-                onChange={(e) => setHourlyRate(e.target.value)}
-                className="h-11 text-base"
-              />
-            </div>
-            <div className="space-y-3">
-              <Label htmlFor="hours" className="text-base">Hours Worked</Label>
-              <Input
-                id="hours"
-                type="number"
-                placeholder="e.g., 40"
-                value={hours}
-                onChange={(e) => setHours(e.target.value)}
-                className="h-11 text-base"
-              />
-            </div>
-
-            {(rate > 0 || hoursWorked > 0) && (
-              <div className="space-y-6 pt-6 border-t">
-                <div className="flex justify-between items-center">
-                  <span className="text-base font-medium">Gross Pay:</span>
-                  <span className="text-xl font-semibold">${grossPay.toFixed(2)}</span>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <Card className="border border-border/40 bg-card/80 backdrop-blur-sm lg:col-span-2 shadow-xl">
+            <CardHeader className="p-8 lg:p-10 border-b border-border/40">
+              <CardTitle className="text-2xl font-bold">Calculate Estimates</CardTitle>
+              <CardDescription className="text-base">Enter your rates to see gross pay and estimated taxes.</CardDescription>
+            </CardHeader>
+            <CardContent className="p-8 lg:p-10 space-y-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <Label htmlFor="rate" className="text-base font-bold">Hourly Rate ($)</Label>
+                  <Input
+                    id="rate"
+                    type="number"
+                    placeholder="e.g., 50"
+                    value={hourlyRate}
+                    onChange={(e) => setHourlyRate(e.target.value)}
+                    className="h-14 text-lg rounded-2xl border-2 focus:ring-primary/20"
+                  />
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-base font-medium">Estimated Self-Employment Tax (15.3%):</span>
-                  <span className="text-xl font-semibold text-muted-foreground">
-                    ${selfEmploymentTax.toFixed(2)}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center pt-4 border-t">
-                  <span className="text-base font-medium">Estimated Net (after SE tax):</span>
-                  <span className="text-2xl font-bold">${estimatedNet.toFixed(2)}</span>
+                <div className="space-y-3">
+                  <Label htmlFor="hours" className="text-base font-bold">Hours Worked</Label>
+                  <Input
+                    id="hours"
+                    type="number"
+                    placeholder="e.g., 40"
+                    value={hours}
+                    onChange={(e) => setHours(e.target.value)}
+                    className="h-14 text-lg rounded-2xl border-2 focus:ring-primary/20"
+                  />
                 </div>
               </div>
-            )}
 
-            <div className="pt-6 border-t">
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                <strong className="font-medium">Note:</strong> This is an estimate. Actual taxes depend on many factors including
-                deductions, other income, and tax bracket. Self-employment tax rate is approximate for 2024.
-                Consult with a tax professional for accurate calculations.
+              {(rate > 0 || hoursWorked > 0) && (
+                <div className="space-y-6 p-8 rounded-3xl bg-muted/30 border border-border/40 animate-in fade-in slide-in-from-bottom-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-lg font-medium">Gross Pay:</span>
+                    <span className="text-2xl font-bold">${grossPay.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-muted-foreground">
+                    <span className="text-base">Estimated Self-Employment Tax (15.3%):</span>
+                    <span className="text-xl font-semibold">
+                      -${selfEmploymentTax.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center pt-6 border-t border-border/40">
+                    <span className="text-xl font-bold">Estimated Net (after SE tax):</span>
+                    <span className="text-4xl font-extrabold text-primary">${estimatedNet.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                  </div>
+                </div>
+              )}
+
+              <div className="p-6 rounded-2xl bg-yellow-500/5 border border-yellow-500/10 flex items-start gap-4">
+                <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-600 mt-1">
+                  <AlertCircle className="h-4 w-4" />
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  <strong className="text-foreground">Important Note:</strong> This is a simplified estimate for federal self-employment tax only. It does not account for income tax brackets, business deductions, or state taxes. Consult with a tax professional for official advice.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="space-y-8">
+            <Card className="border border-border/40 bg-card/50 backdrop-blur-sm p-8">
+              <h3 className="text-xl font-bold mb-4">Self-Employment Tax</h3>
+              <p className="text-muted-foreground leading-relaxed font-normal mb-6">
+                Independent contractors pay the full Social Security and Medicare tax amount themselves, which is normally split between employee and employer.
               </p>
+              <ul className="space-y-4 list-none p-0">
+                {[
+                  "Social Security: 12.4%",
+                  "Medicare: 2.9%",
+                  "Total Rate: 15.3%",
+                  "Paid quarterly (estimated)"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm font-medium">
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Card>
+            <div className="p-8 rounded-3xl bg-primary/5 border border-primary/10 space-y-4">
+              <h4 className="font-bold">Next Steps</h4>
+              <p className="text-sm text-muted-foreground">Now that you've estimated your rates, ensure your engagement is properly classified.</p>
+              <Button asChild variant="outline" className="w-full rounded-2xl bg-card">
+                <Link href="/tools/classification">Check Classification</Link>
+              </Button>
             </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border border-border/40 bg-card/50">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold">Understanding Self-Employment Tax</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Independent contractors are responsible for paying self-employment tax, which covers Social Security and Medicare.
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-base text-muted-foreground leading-relaxed ml-2">
-              <li>Self-employment tax rate is approximately 15.3% (for 2024)</li>
-              <li>This is in addition to regular income tax</li>
-              <li>You may be able to deduct business expenses to reduce taxable income</li>
-              <li>Quarterly estimated tax payments may be required</li>
-            </ul>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </div>
   );

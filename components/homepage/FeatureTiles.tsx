@@ -8,58 +8,58 @@ const features = [
     icon: Shield,
     title: "Federal Focus",
     description: "Clear guidance on federal contractor rules, no state complexity.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
+    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_searching_re_8v0v.svg",
   },
   {
     icon: Clock,
     title: "Real-Time Updates",
     description: "Stay informed about changes to federal guidance and deadlines.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_alarm_ringing_re_8v0v.svg",
   },
   {
     icon: BookOpen,
     title: "Clear Guidance",
     description: "Plain English explanations, not overwhelming legalese.",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
+    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_learning_to_sketch_re_8v0v.svg",
   },
   {
     icon: Wrench,
     title: "Free Tools",
     description: "Interactive tools to check compliance and make decisions.",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80",
+    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_check_boxes_re_8v0v.svg",
   },
 ];
 
 export function FeatureTiles() {
   return (
-    <section className="bg-background container px-6 py-24 md:py-32">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {features.map((feature) => {
+    <section className="bg-transparent container px-6 py-24 md:py-32">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {features.map((feature, index) => {
           const Icon = feature.icon;
           const cardElement = (
             <Card 
               key={feature.title} 
-              className="border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl bg-card group shadow-sm overflow-hidden h-full cursor-pointer"
+              className={cn(
+                "border border-border/50 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl bg-card/80 backdrop-blur-sm group shadow-sm overflow-hidden h-full flex flex-col",
+                index % 2 === 0 ? "md:translate-y-4" : "md:-translate-y-4"
+              )}
             >
-              <div className="relative h-48 w-full">
-                <Image
+              <div className="relative h-64 w-full p-8 flex items-center justify-center bg-muted/20">
+                <img
                   src={feature.image}
                   alt={feature.title}
-                  fill
-                  className="object-cover opacity-60 group-hover:opacity-70 transition-opacity"
+                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <CardHeader>
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Icon className="h-7 w-7 text-primary" />
+              <CardHeader className="flex-grow">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <Icon className="h-6 w-6 text-primary" />
                 </div>
                 <CardTitle className="text-xl font-bold mb-3 text-foreground">{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
                 <CardDescription className="text-base text-muted-foreground leading-relaxed">
                   {feature.description}
                 </CardDescription>
-              </CardContent>
+              </CardHeader>
             </Card>
           );
 
@@ -71,7 +71,7 @@ export function FeatureTiles() {
             );
           }
 
-          return cardElement;
+          return <div key={feature.title} className="h-full">{cardElement}</div>;
         })}
       </div>
     </section>

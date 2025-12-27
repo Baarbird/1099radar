@@ -62,7 +62,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_decide_re_8v0v.svg"
   },
   forms: {
     id: "forms",
@@ -111,7 +111,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_documents_re_8v0v.svg"
   },
   deadlines: {
     id: "deadlines",
@@ -155,7 +155,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_calendar_re_i4u4.svg"
   },
   penalties: {
     id: "penalties",
@@ -200,7 +200,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_warning_re_8v0v.svg"
   },
   requirements: {
     id: "requirements",
@@ -256,7 +256,7 @@ export const federalRulesContent: Record<FederalTopic, FederalRuleContent> = {
         }
       ]
     },
-    imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80"
+    imageUrl: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_checklist_re_8v0v.svg"
   }
 };
 

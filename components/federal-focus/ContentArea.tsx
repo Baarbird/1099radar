@@ -14,62 +14,66 @@ export function ContentArea({ topic }: ContentAreaProps) {
   return (
     <div className="w-full md:w-[80%] md:ml-[20%] min-h-screen bg-background pt-24 md:pt-0">
       <div className="w-full px-6 md:px-12 lg:px-16 py-12 md:py-16">
-        <div className="w-full max-w-6xl mx-auto space-y-8">
+        <div className="w-full max-w-6xl mx-auto space-y-16">
           {/* Header with Image */}
-          <div className="text-center space-y-6">
-            <div className="flex justify-center mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 text-left">
+              <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl text-foreground leading-tight">
+                {content.title}
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed font-normal">
+                {content.description}
+              </p>
+              <div className="p-6 rounded-3xl bg-primary/5 border border-primary/10">
+                <p className="text-base text-muted-foreground leading-relaxed font-normal">
+                  {content.content.introduction}
+                </p>
+              </div>
+            </div>
+            <div className="relative order-first lg:order-last p-8 bg-muted/20 rounded-[40px]">
               <img 
                 src={content.imageUrl} 
                 alt={content.title} 
-                className="w-full max-w-md h-auto"
+                className="w-full h-auto drop-shadow-2xl animate-in fade-in zoom-in duration-700"
                 onError={(e) => {
-                  // Fallback to a placeholder if image fails to load
                   const target = e.target as HTMLImageElement;
-                  target.src = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80";
+                  target.src = "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_searching_re_8v0v.svg";
                 }}
               />
             </div>
-            <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">
-              {content.title}
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              {content.description}
-            </p>
           </div>
 
-          {/* Introduction */}
-          <Card className="border border-border/40 bg-card/50">
-            <CardContent className="pt-6">
-              <p className="text-base text-muted-foreground leading-relaxed">
-                {content.content.introduction}
-              </p>
-            </CardContent>
-          </Card>
-
           {/* Content Sections */}
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {content.content.sections.map((section, index) => (
               <Card 
                 key={index} 
-                className="border border-border/40 hover:border-border transition-all duration-200 hover:shadow-sm bg-card/50"
+                className={cn(
+                  "border border-border/40 hover:border-primary/30 transition-all duration-500 hover:shadow-xl bg-card/50 backdrop-blur-sm group overflow-hidden flex flex-col",
+                  index % 3 === 0 ? "md:col-span-2" : ""
+                )}
               >
-                <CardHeader>
-                  <CardTitle className="text-2xl font-semibold">
+                <div className="h-1.5 w-full bg-primary/10 group-hover:bg-primary transition-colors" />
+                <CardHeader className="p-8 lg:p-10">
+                  <CardTitle className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
                     {section.heading}
                   </CardTitle>
+                  <CardContent className="p-0">
+                    <p className="text-base text-muted-foreground leading-relaxed font-normal mb-6">
+                      {section.text}
+                    </p>
+                    {section.bullets && (
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none p-0">
+                        {section.bullets.map((bullet, bulletIndex) => (
+                          <li key={bulletIndex} className="flex items-start gap-3 text-sm font-medium text-muted-foreground bg-muted/30 p-3 rounded-xl border border-border/20">
+                            <div className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </CardContent>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    {section.text}
-                  </p>
-                  {section.bullets && (
-                    <ul className="list-disc list-inside space-y-2 text-base text-muted-foreground leading-relaxed ml-2">
-                      {section.bullets.map((bullet, bulletIndex) => (
-                        <li key={bulletIndex}>{bullet}</li>
-                      ))}
-                    </ul>
-                  )}
-                </CardContent>
               </Card>
             ))}
           </div>

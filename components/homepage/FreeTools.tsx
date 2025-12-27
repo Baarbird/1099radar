@@ -11,7 +11,7 @@ const tools = [
     description: "Answer a few questions to see what forms you need and identify compliance gaps.",
     href: "/tools/compliance-check",
     featured: true,
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80",
+    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_checklist_re_8v0v.svg",
   },
   {
     icon: FileText,
@@ -19,7 +19,7 @@ const tools = [
     description: "Not sure which form to use? This tool helps you decide based on payment type.",
     href: "/tools/nec-vs-misc",
     featured: false,
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_documents_re_8v0v.svg",
   },
   {
     icon: Users,
@@ -27,7 +27,7 @@ const tools = [
     description: "Understand the key differences and classification factors for federal rules.",
     href: "/tools/classification",
     featured: false,
-    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80",
+    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_team_re_8v0v.svg",
   },
   {
     icon: Calculator,
@@ -35,94 +35,65 @@ const tools = [
     description: "Calculate contractor rates and understand tax implications.",
     href: "/tools/calculator",
     featured: false,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    image: "https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_calculator_re_8v0v.svg",
   },
 ];
 
 export function FreeTools() {
   return (
-    <section className="bg-muted/30 container px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6 text-foreground">
-            Free Tools to Get Started
-          </h2>
-          <p className="text-xl text-muted-foreground font-normal">
-            No signup required. Start using these tools right away.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {tools.map((tool) => {
-            const Icon = tool.icon;
-            return (
-              <Card
-                key={tool.title}
-                className={`border border-border/50 hover:border-primary/40 transition-all duration-300 hover:shadow-xl bg-card group shadow-md overflow-hidden ${
-                  tool.featured ? "md:col-span-2 md:grid md:grid-cols-2" : ""
-                }`}
-              >
-                {tool.featured ? (
-                  <>
-                    <div className="relative h-full min-h-[300px]">
-                      <Image
-                        src={tool.image}
-                        alt={tool.title}
-                        fill
-                        className="object-cover opacity-60 group-hover:opacity-70 transition-opacity"
-                      />
+    <section className="relative overflow-hidden py-24 md:py-32">
+      <div className="absolute inset-0 bg-primary/5 -skew-y-3 origin-right transform" />
+      <div className="container relative px-6">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-20 space-y-4">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-foreground">
+              Free Tools to <span className="text-primary">Get Started</span>
+            </h2>
+            <p className="text-xl text-muted-foreground font-normal max-w-2xl mx-auto">
+              No signup required. Start using these tools right away to ensure your business stays compliant.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {tools.map((tool) => {
+              const Icon = tool.icon;
+              return (
+                <Card
+                  key={tool.title}
+                  className={`border border-border/50 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl bg-card/90 backdrop-blur-sm group shadow-md overflow-hidden flex flex-col ${
+                    tool.featured ? "md:col-span-2 md:grid md:grid-cols-2 gap-0" : ""
+                  }`}
+                >
+                  <div className={cn(
+                    "relative flex items-center justify-center p-8 bg-muted/30",
+                    tool.featured ? "h-full min-h-[300px]" : "h-64"
+                  )}>
+                    <img
+                      src={tool.image}
+                      alt={tool.title}
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="flex flex-col p-8 lg:p-10">
+                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Icon className="h-7 w-7 text-primary" />
                     </div>
-                    <div className="flex flex-col">
-                      <CardHeader>
-                        <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                          <Icon className="h-7 w-7 text-primary" />
-                        </div>
-                        <CardTitle className="text-2xl font-bold mb-4 text-foreground">{tool.title}</CardTitle>
-                        <CardDescription className="text-base text-muted-foreground leading-relaxed">
-                          {tool.description}
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex items-end">
-                        <Button asChild variant="default" size="lg" className="h-12 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                          <Link href={tool.href}>
-                            Try it
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="relative h-48 w-full">
-                      <Image
-                        src={tool.image}
-                        alt={tool.title}
-                        fill
-                        className="object-cover opacity-60 group-hover:opacity-70 transition-opacity"
-                      />
-                    </div>
-                    <CardHeader>
-                      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                        <Icon className="h-7 w-7 text-primary" />
-                      </div>
-                      <CardTitle className="text-2xl font-bold mb-4 text-foreground">{tool.title}</CardTitle>
-                      <CardDescription className="text-base text-muted-foreground leading-relaxed">
-                        {tool.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <Button asChild variant="outline" size="lg" className="h-12 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <CardTitle className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">{tool.title}</CardTitle>
+                    <CardDescription className="text-lg text-muted-foreground leading-relaxed mb-8">
+                      {tool.description}
+                    </CardDescription>
+                    <div className="mt-auto">
+                      <Button asChild variant={tool.featured ? "default" : "outline"} size="lg" className="h-12 rounded-2xl shadow-sm hover:shadow-md transition-all px-8">
                         <Link href={tool.href}>
-                          Try it
+                          Launch Tool
                           <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                       </Button>
-                    </CardContent>
-                  </>
-                )}
-              </Card>
-            );
-          })}
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

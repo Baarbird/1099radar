@@ -45,87 +45,111 @@ const categories = ["All", "IRS Guidance", "DOL Rules", "Deadline Reminder", "Pe
 export default function RadarPage() {
   return (
     <div className="container px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-4xl space-y-12">
-        <div className="text-center space-y-6">
-          <div className="flex justify-center mb-6">
+      <div className="mx-auto max-w-5xl space-y-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6 text-left">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-primary/10 text-primary">
+              <Radar className="h-6 w-6 animate-pulse" />
+              <span className="font-bold text-sm uppercase tracking-widest">Live Monitoring</span>
+            </div>
+            <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl text-foreground leading-tight">
+              Federal Updates <span className="text-primary underline underline-offset-8 decoration-primary/20">Radar</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed font-normal max-w-xl">
+              Stay ahead of regulatory changes. We track federal contractor rules, deadlines, and guidance so you don't miss a beat.
+            </p>
+          </div>
+          <div className="relative order-first lg:order-last p-8">
             <img 
-              src="https://assets.manypixels.co/illustrations/radar" 
+              src="https://raw.githubusercontent.com/atlo-team/undraw-api/master/data/images/undraw_radar_re_8v0v.svg" 
               alt="Radar monitoring illustration" 
-              className="w-full max-w-md h-auto"
+              className="w-full h-auto drop-shadow-2xl animate-in zoom-in duration-1000"
             />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary/10 rounded-full blur-3xl -z-10" />
           </div>
-          <div className="flex items-center justify-center gap-3">
-            <Radar className="h-12 w-12 text-primary/60" />
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">Federal Updates Radar</h1>
-          </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-normal">
-            Stay informed about changes to federal contractor rules, deadlines, and guidance.
-          </p>
         </div>
 
-        <Card className="border border-border/50 bg-card">
-          <CardHeader>
-            <CardTitle className="text-xl font-bold">About This Radar</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-base text-muted-foreground leading-relaxed font-normal">
-              This page tracks federal-level updates related to 1099 contractor compliance, 
-              including IRS guidance, Department of Labor rules, deadline reminders, and penalty updates. 
-              We focus on federal rules only—state-specific requirements are not included in v1.
-            </p>
-          </CardContent>
-        </Card>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <Card className="border border-border/50 bg-card/80 backdrop-blur-sm p-8 lg:col-span-1 h-fit sticky top-24">
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-primary" />
+              Categories
+            </h3>
+            <div className="flex flex-col gap-2">
+              {categories.map((category) => (
+                <button 
+                  key={category} 
+                  className={cn(
+                    "text-left px-4 py-2.5 rounded-xl text-sm font-semibold transition-all",
+                    category === "All" 
+                      ? "bg-primary text-primary-foreground shadow-md" 
+                      : "text-muted-foreground hover:bg-muted/50"
+                  )}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </Card>
 
-        <div className="space-y-8">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Recent Updates</h2>
-          <div className="space-y-6">
-            {updates.map((update) => (
-              <Card key={update.date} className="border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-card group">
-                <CardHeader>
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-4">
-                        <Badge variant="outline" className="font-semibold">{update.category}</Badge>
-                        <time className="text-sm text-muted-foreground font-medium">
-                          {new Date(update.date).toLocaleDateString("en-US", {
-                            month: "long",
-                            day: "numeric",
-                            year: "numeric",
-                          })}
-                        </time>
+          <div className="lg:col-span-3 space-y-8">
+            <div className="flex items-center justify-between">
+              <h2 className="text-3xl font-bold tracking-tight">Recent Updates</h2>
+              <Badge variant="outline" className="px-4 py-1 rounded-full font-bold">{updates.length} Updates</Badge>
+            </div>
+            <div className="space-y-6">
+              {updates.map((update) => (
+                <Card key={update.date} className="border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-xl bg-card/50 backdrop-blur-sm group overflow-hidden">
+                  <div className="h-1 w-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <CardHeader className="p-8">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-4">
+                          <Badge variant="secondary" className="font-bold bg-primary/10 text-primary border-transparent px-3 py-1 rounded-lg">{update.category}</Badge>
+                          <time className="text-sm text-muted-foreground font-bold tracking-tight">
+                            {new Date(update.date).toLocaleDateString("en-US", {
+                              month: "long",
+                              day: "numeric",
+                              year: "numeric",
+                            })}
+                          </time>
+                        </div>
+                        <CardTitle className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{update.title}</CardTitle>
+                        <CardDescription className="text-base leading-relaxed font-normal text-muted-foreground italic">
+                          {update.description}
+                        </CardDescription>
                       </div>
-                      <CardTitle className="text-2xl font-bold mb-4">{update.title}</CardTitle>
-                      <CardDescription className="text-base leading-relaxed font-normal">
-                        {update.description}
-                      </CardDescription>
+                      <div className="hidden sm:block p-3 rounded-2xl bg-muted/50 text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-all">
+                        <FileText className="h-6 w-6" />
+                      </div>
                     </div>
-                    <div className="flex-shrink-0">
-                      <FileText className="h-5 w-5 text-primary/60" />
+                  </CardHeader>
+                  <CardContent className="px-8 pb-8 pt-0 border-t border-border/20 mt-4">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground font-bold uppercase tracking-widest pt-4">
+                      <div className="h-1 w-1 rounded-full bg-border" />
+                      Source: <span className="text-foreground">{update.source}</span>
                     </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
-                    <Calendar className="h-4 w-4" />
-                    <span>Source: {update.source}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
 
-        <Card className="border border-border/50 bg-card">
-          <CardHeader>
-            <CardTitle className="text-xl font-bold">Stay Updated</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-base text-muted-foreground leading-relaxed font-normal">
-              Federal rules and guidance can change. This radar is updated regularly to reflect 
-              the latest information. For the most current official guidance, always refer to 
-              IRS.gov and DOL.gov directly.
+        <Card className="border border-border/50 bg-primary text-primary-foreground p-10 rounded-[32px] relative overflow-hidden text-center">
+          <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-black tracking-tight">Never miss an update.</h2>
+            <p className="text-lg opacity-90 font-medium leading-relaxed">
+              Federal rules change frequently. Our radar is updated weekly to reflect the latest IRS and Department of Labor guidance.
             </p>
-          </CardContent>
+            <div className="flex justify-center pt-4">
+              <Button size="lg" variant="secondary" className="h-14 px-10 rounded-2xl font-bold shadow-xl">
+                Refer a Friend
+              </Button>
+            </div>
+          </div>
+          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
         </Card>
       </div>
     </div>
