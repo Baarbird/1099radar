@@ -78,7 +78,7 @@ export function ResultsCard({
                   <div className="text-xs text-muted-foreground">Behavioral</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">{report.financialScore}</div>
+                  <div className="text-2xl font-bold text-amber-700">{report.financialScore}</div>
                   <div className="text-xs text-muted-foreground">Financial</div>
                 </div>
                 <div className="text-center">

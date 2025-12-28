@@ -131,7 +131,7 @@ export default function FireContractorPage() {
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-bold text-lg flex items-center gap-2">
-                    <div className="h-2 w-2 rounded-full bg-green-500" />
+                    <div className="h-2 w-2 rounded-full bg-amber-500" />
                     After
                   </h4>
                   <ul className="space-y-2 text-muted-foreground">

@@ -10,14 +10,14 @@ interface RiskScoreProps {
 
 export function RiskScore({ score, explanation }: RiskScoreProps) {
   const getScoreColor = () => {
-    if (score <= 3) return "text-green-600";
-    if (score <= 6) return "text-yellow-600";
-    return "text-red-600";
+    if (score <= 3) return "text-stone-700";
+    if (score <= 6) return "text-amber-700";
+    return "text-red-700";
   };
 
   const getScoreBgColor = () => {
-    if (score <= 3) return "bg-green-100";
-    if (score <= 6) return "bg-yellow-100";
+    if (score <= 3) return "bg-stone-100";
+    if (score <= 6) return "bg-amber-100";
     return "bg-red-100";
   };
 

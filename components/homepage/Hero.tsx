@@ -6,18 +6,14 @@ import { UndrawIllustration } from "@/components/shared/UndrawIllustration";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[90vh] flex items-center">
+    <section className="relative overflow-hidden min-h-[80vh] flex items-center">
       {/* Dynamic background shapes */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       
-      <div className="container relative px-6 py-20">
+      <div className="container relative px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase">
-              1099 Compliance Simplified
-            </div>
-            
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-foreground">
               Stop <span className="text-primary italic">guessing</span> about contractor compliance.
             </h1>

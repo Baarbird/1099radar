@@ -19,25 +19,25 @@ const categoryConfig = {
     label: "Behavioral Control",
     icon: FileText,
     description: "IRS Factor 1: Control over how and when work is performed",
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
-    borderColor: "border-blue-200",
+    color: "text-stone-600",
+    bgColor: "bg-stone-50",
+    borderColor: "border-stone-200",
   },
   financial: {
     label: "Financial Control",
     icon: DollarSign,
     description: "IRS Factor 2: Control over business aspects and financial investment",
-    color: "text-green-600",
-    bgColor: "bg-green-50",
-    borderColor: "border-green-200",
+    color: "text-amber-700",
+    bgColor: "bg-amber-50",
+    borderColor: "border-amber-200",
   },
   relationship: {
     label: "Type of Relationship",
     icon: Users,
     description: "IRS Factor 3: Written contracts, permanence, and benefits",
-    color: "text-purple-600",
-    bgColor: "bg-purple-50",
-    borderColor: "border-purple-200",
+    color: "text-orange-800",
+    bgColor: "bg-orange-50",
+    borderColor: "border-orange-200",
   },
 };
 
@@ -74,7 +74,7 @@ export function FactorBreakdown({
       return <Badge variant="destructive" className="text-xs">Employee Indicator</Badge>;
     }
     if (indicator === "contractor") {
-      return <Badge variant="default" className="text-xs bg-green-600">Contractor Indicator</Badge>;
+      return <Badge variant="default" className="text-xs bg-amber-700">Contractor Indicator</Badge>;
     }
     return <Badge variant="secondary" className="text-xs">Neutral</Badge>;
   };
@@ -155,7 +155,7 @@ export function FactorBreakdown({
                                 ? "text-red-600"
                                 : factor.riskContribution >= 4
                                 ? "text-yellow-600"
-                                : "text-green-600"
+                                : "text-amber-700"
                             )}
                           >
                             +{factor.riskContribution} points

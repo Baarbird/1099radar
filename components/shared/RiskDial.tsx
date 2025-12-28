@@ -32,9 +32,9 @@ export function RiskDial({ score, size = 200, className }: RiskDialProps) {
   }, [score]);
 
   const getColor = (value: number) => {
-    if (value <= 30) return "#10b981"; // green
-    if (value <= 60) return "#f59e0b"; // yellow/amber
-    return "#ef4444"; // red
+    if (value <= 30) return "#8c7352"; // earthy bronze
+    if (value <= 60) return "#d97706"; // amber
+    return "#991b1b"; // deep clay red
   };
 
   const getLevel = (value: number): "low" | "medium" | "high" => {

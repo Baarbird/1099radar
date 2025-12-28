@@ -42,8 +42,7 @@ export function FeatureTiles() {
             <Card 
               key={feature.title} 
               className={cn(
-                "border border-border/50 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl bg-card/80 backdrop-blur-sm group shadow-sm overflow-hidden h-full flex flex-col",
-                index % 2 === 0 ? "md:translate-y-4" : "md:-translate-y-4"
+                "border border-border/50 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl bg-card/80 backdrop-blur-sm group shadow-sm overflow-hidden h-full flex flex-col"
               )}
             >
               <div className="relative h-64 w-full p-8 flex items-center justify-center bg-muted/20">
